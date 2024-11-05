@@ -22,6 +22,14 @@ class SecondaryButton extends StatelessWidget {
           color: Colors.white,
           borderRadius: BorderRadius.circular(8),
           border: Border.all(color: ColorsUtil.mainButton, width: 1),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.grey.withOpacity(0.5),
+              spreadRadius: 1,
+              blurRadius: 5,
+              offset: const Offset(0, 1), // changes position of shadow
+            ),
+          ],
         ),
         alignment: Alignment.center,
         child: Text(

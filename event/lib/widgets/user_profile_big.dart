@@ -37,7 +37,7 @@ class UserProfileBig extends StatelessWidget {
                   color: Colors.white,
                 ),
                 child: const Icon(
-                  Icons.edit,
+                  Icons.camera_alt,
                   size: 20,
                 ),
               ),

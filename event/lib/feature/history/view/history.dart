@@ -1,3 +1,4 @@
+import 'package:event/utils/colors.dart';
 import 'package:flutter/material.dart';
 
 class HistoryPage extends StatefulWidget {
@@ -11,7 +12,16 @@ class _HistoryPageState extends State<HistoryPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
+      appBar: AppBar(
+        title: const Text(
+          'History',
+          style: TextStyle(
+            color: Colors.white,
+          ),
+        ),
+        backgroundColor: ColorsUtil.primaryBg,
+      ),
+      body: const Center(
         child: Text('History Page'),
       ),
     );

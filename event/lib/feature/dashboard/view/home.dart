@@ -41,13 +41,13 @@ class _HomePageState extends State<HomePage> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 MenuButton(
-                    title: 'Events', image: 'ic_televisi.png', onClick: () {}),
+                    title: 'Events', image: 'ic_event.png', onClick: () {}),
                 MenuButton(
-                    title: 'Partners', image: 'ic_makanan.png', onClick: () {}),
+                    title: 'Partners', image: 'ic_partner.png', onClick: () {}),
                 MenuButton(
-                    title: 'My Card', image: 'ic_pulsa.png', onClick: () {}),
+                    title: 'My Card', image: 'ic_card.png', onClick: () {}),
                 MenuButton(
-                    title: 'Referral', image: 'ic_data.png', onClick: () {}),
+                    title: 'Referral', image: 'ic_referral.png', onClick: () {}),
               ],
             ),
           ),
@@ -55,7 +55,6 @@ class _HomePageState extends State<HomePage> {
               child: Column(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
-              // Container(height: 160, color: Colors.red.withOpacity(0.4)),
               Container(
                 padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 20),
                 child: Column(

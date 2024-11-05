@@ -1,3 +1,4 @@
+import 'package:event/utils/colors.dart';
 import 'package:flutter/material.dart';
 
 class MenuButton extends StatelessWidget {
@@ -15,9 +16,8 @@ class MenuButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 84,
-      height: 94,
-      padding: const EdgeInsets.all(10),
+      width: 80,
+      height: 80,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(8),
         color: Colors.white,
@@ -30,18 +30,22 @@ class MenuButton extends StatelessWidget {
           ),
         ],
       ),
-      child: Column(children: [
+      child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
         Image.asset(
           'images/assets/$image',
-          width: 50,
-          height: 50,
+          width: 36,
+          height: 36,
+          color: Colors.black87,
         ),
         const SizedBox(height: 4),
         Text(
           title,
           style: const TextStyle(
-            color: Colors.black,
-            fontSize: 14,
+            color: Colors.black87,
+            fontSize: 13,
           ),
         ),
       ]),
