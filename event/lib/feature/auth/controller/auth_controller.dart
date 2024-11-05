@@ -3,48 +3,57 @@ import 'package:event/feature/auth/model/user_model.dart';
 import 'package:event/utils/validation_utils.dart';
 import 'package:flutter/cupertino.dart';
 
-class AuthController extends ChangeNotifier implements AuthInterface{
-
-  bool showErrorMessage = false;
-  String errMessage = '';
-
+class AuthController extends ChangeNotifier implements AuthInterface {
 
   @override
-  void forgotPassword(String email, {VoidCallback? onSuccess}) {
+  void forgotPassword(
+    String email, {
+    ValueChanged<String>? onError,
+    VoidCallback? onSuccess,
+  }) {
     // TODO: implement forgotPassword
-    errMessage = Validation.validateEmail(email);
-    if(errMessage.isEmpty){
+    String err = Validation.validateEmail(email);
+    if (err.isEmpty) {
       onSuccess!();
     } else {
-      showErrorMessage = true;
-      notifyListeners();
+      onError!(err);
     }
   }
 
   @override
-  void login(String email, String password, {VoidCallback? onSuccess}) {
+  void login(
+    String email,
+    String password, {
+    ValueChanged<String>? onError,
+    VoidCallback? onSuccess,
+  }) {
     // TODO: implement login
 
-    errMessage = Validation.validateEmail(email);
-    if(errMessage.isEmpty){
+    String err = Validation.validateEmail(email);
+    if (err.isEmpty) {
       onSuccess!();
     } else {
-      showErrorMessage = true;
-      notifyListeners();
+      onError!(err);
     }
   }
 
   @override
-  void register(UserModel user, {VoidCallback? onSuccess}) {
+  void register(
+    String email,
+    String firstname,
+    String lastname,
+    String password,
+    String rePassword, {
+    ValueChanged<String>? onError,
+    VoidCallback? onSuccess,
+  }) {
     // TODO: implement register
 
-    errMessage = Validation.validateEmail(user.email!);
-    if(errMessage.isEmpty) {
+    String err = Validation.validateEmail(email!);
+    if (err.isEmpty) {
       onSuccess!();
     } else {
-      showErrorMessage = true;
-      notifyListeners();
+      onError!(err);
     }
   }
-
 }

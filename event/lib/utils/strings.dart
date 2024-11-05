@@ -1,25 +1,33 @@
 class Strings {
 
   //Login
-  static const String loginHeader = 'Masuk atau buat akun untuk memulai';
-  static const String loginEmail = 'masukan email anda';
-  static const String loginPassword = 'masukan password anda';
-  static const String registerNote = 'belum punya akun? registrasi';
+  static const String loginHeader = 'Log In';
+  static const String loginHeaderDetail = 'Input your email and password';
+  static const String loginEmail = 'Input your email';
+  static const String loginPassword = 'Input your password';
+  static const String registerNote = 'Don\'t have an account?';
+  static const String registerNote2 = 'Sign Up';
 
   //register
-  static const String registerHeader = 'Lengkapi data untuk membuat akun';
-  static const String registerEmail = 'masukan email anda';
-  static const String namaDepan = 'nama depan';
-  static const String namaBelakang = 'nama belakang';
-  static const String buatPassword = 'buat password';
-  static const String konfirmasiPassword = 'konfirmasi password';
+  static const String registerHeader = 'Sign Up';
+  static const String registerHeaderDetail = 'Fill all your data to make an account';
+  static const String registerEmail = 'Input your email';
+  static const String namaDepan = 'First Name';
+  static const String namaBelakang = 'Last Name';
+  static const String buatPassword = 'Input Password';
+  static const String konfirmasiPassword = 'Input Re-Password';
   static const String loginNote = 'sudah punya akun? login';
+
+  //forgot password
+  static const String forgotHeader = 'Forgot \nPassword';
+  static const String forgotHeaderDetail = 'Input your email to get new password';
+  static const String forgotEmail = 'Input your email';
 
   //home
   static const String selamatDatang = 'Selamat datang,';
   static const String saldoAnda = 'Saldo anda';
   static const String lihatSaldo = 'Lihat Saldo';
-  static const String temukanPromoMenarik = 'Temukan promo menarik';
+  static const String pastVideoheader = 'All past event video';
 
   //menu
   static const String pbb = 'PBB';
@@ -34,11 +42,13 @@ class Strings {
   static const String kurban = 'Kurban';
   static const String zakat = 'zakat';
   static const String data = 'Data';
-  static const String home = 'Beranda';
-  static const String topupmenu = 'Top Up';
-  static const String transaction = 'Transaksi';
-  static const String akun = 'Akun';
+
   static const String pembayaran = 'Pembayaran';
+
+  static const String home = 'Home';
+  static const String profile = 'Profile';
+  static const String history = 'History';
+  static const String notification = 'Notification';
 
   //topup
   static const String topupHeader = 'Silahkan masukan';
@@ -46,9 +56,9 @@ class Strings {
   static const String topupInput = 'masukan nominal Top Up';
 
   //button
-  static const String login = 'Masuk';
+  static const String login = 'Log In';
   static const String disini = 'di sini';
-  static const String register = 'register';
+  static const String register = 'Sign Up';
   static const String topup = 'Top Up';
   static const String bayar = 'Bayar';
   static const String showMore = 'Show more';
@@ -56,6 +66,8 @@ class Strings {
   static const String logout = 'Logout';
   static const String simpan = 'Simpan';
   static const String batalkan = 'Batalkan';
+  static const String send = 'Send';
+  static const String forgotPassword = 'Forgot your password?';
 
   //label
   static const String kembali = 'Kembali';

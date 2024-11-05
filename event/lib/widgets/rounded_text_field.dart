@@ -1,4 +1,3 @@
-import 'package:event/utils/colors.dart';
 import 'package:flutter/material.dart';
 
 class RoundedTextField extends StatefulWidget {
@@ -16,11 +15,9 @@ class RoundedTextField extends StatefulWidget {
     this.onSuffix,
     this.fillColor,
     this.hintText,
-    this.errorText,
     this.obscureText = false,
     this.translateLabel = true,
     this.disabled = false,
-    this.isError = false,
     this.margin,
     this.textCapitalization,
     required this.textController,
@@ -38,12 +35,10 @@ class RoundedTextField extends StatefulWidget {
   final VoidCallback? onSuffix;
   final Color? fillColor;
   final String? hintText;
-  final String? errorText;
   final TextEditingController textController;
   final bool obscureText;
   final bool translateLabel;
   final bool disabled;
-  final bool isError;
   final EdgeInsets? margin;
   final TextCapitalization? textCapitalization;
 
@@ -53,7 +48,7 @@ class RoundedTextField extends StatefulWidget {
 
 class _RoundedTextFieldState extends State<RoundedTextField> {
   String hintTranslation = '';
-  bool isStringEmpty = false;
+  bool isStringEmpty = true;
   final FocusNode focusNode = FocusNode();
 
   @override
@@ -83,6 +78,18 @@ class _RoundedTextFieldState extends State<RoundedTextField> {
         Container(
           height: widget.maxLines == 1 ? 50 : null,
           width: double.maxFinite,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(8),
+            color: Colors.white,
+            boxShadow: [
+              BoxShadow(
+                color: Colors.grey.withOpacity(0.5),
+                spreadRadius: 1,
+                blurRadius: 10,
+                offset: const Offset(0, 3), // changes position of shadow
+              ),
+            ],
+          ),
           child: TextField(
             enabled: !widget.disabled,
             obscureText: widget.obscureText,
@@ -90,9 +97,8 @@ class _RoundedTextFieldState extends State<RoundedTextField> {
             keyboardType: widget.maxLines > 1
                 ? TextInputType.multiline
                 : widget.textInputType,
-            style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                  fontSize: 14,
-                ),
+            style:
+                Theme.of(context).textTheme.bodyMedium?.copyWith(fontSize: 14),
             textCapitalization:
                 widget.textCapitalization ?? TextCapitalization.sentences,
             decoration: InputDecoration(
@@ -107,26 +113,21 @@ class _RoundedTextFieldState extends State<RoundedTextField> {
               contentPadding:
                   const EdgeInsets.symmetric(horizontal: 10, vertical: 14),
               isDense: true,
-              border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(widget.radius),
-              ),
-              enabledBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(widget.radius),
-                borderSide: !widget.isError
-                    ? BorderSide(color: Colors.grey[400]!)
-                    : const BorderSide(color: ColorsUtil.error),
-              ),
-              focusedBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(widget.radius),
-                borderSide: const BorderSide(color: Colors.black),
-              ),
+              border: InputBorder.none,
+              // border: OutlineInputBorder(
+              //   borderRadius: BorderRadius.circular(widget.radius),
+              // ),
+              // enabledBorder: OutlineInputBorder(
+              //   borderRadius: BorderRadius.circular(widget.radius),
+              //   borderSide: BorderSide(color: Colors.grey[400]!),
+              // ),
+              // focusedBorder: OutlineInputBorder(
+              //   borderRadius: BorderRadius.circular(widget.radius),
+              //   borderSide: const BorderSide(color: Colors.black),
+              // ),
               prefixIcon: Icon(
                 widget.prefix,
-                color: widget.isError
-                    ? ColorsUtil.error
-                    : isStringEmpty
-                        ? Colors.grey[400]!
-                        : Colors.black,
+                color: isStringEmpty ? Colors.grey[400]! : Colors.black,
               ),
               suffixIcon: InkWell(
                 onTap: widget.onSuffix,
@@ -157,18 +158,6 @@ class _RoundedTextFieldState extends State<RoundedTextField> {
             cursorColor: Colors.black,
           ),
         ),
-        widget.errorText != null && widget.errorText!.isNotEmpty
-            ? Column(
-                children: [
-                  const SizedBox(height: 4),
-                  Text(
-                    widget.errorText ?? '',
-                    style:
-                        const TextStyle(fontSize: 12, color: ColorsUtil.error),
-                  ),
-                ],
-              )
-            : const SizedBox(),
       ],
     );
   }

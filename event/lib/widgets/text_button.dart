@@ -3,9 +3,11 @@ import 'package:flutter/material.dart';
 
 class TextButtons extends StatelessWidget {
   final String text;
+  final double size;
   final VoidCallback onClick;
 
-  const TextButtons(this.text, {required this.onClick, Key? key})
+  const TextButtons(this.text,
+      {this.size = 12, required this.onClick, Key? key})
       : super(key: key);
 
   @override
@@ -14,7 +16,11 @@ class TextButtons extends StatelessWidget {
       onTap: onClick,
       child: Text(
         text,
-        style: const TextStyle(fontSize: 12, color: ColorsUtil.mainButton),
+        style: TextStyle(
+          fontSize: size,
+          color: ColorsUtil.mainButton,
+          fontWeight: FontWeight.w500,
+        ),
       ),
     );
   }

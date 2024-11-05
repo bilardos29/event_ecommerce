@@ -26,6 +26,14 @@ class MainButton extends StatelessWidget {
         height: 48,
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(8),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.grey.withOpacity(0.5),
+                spreadRadius: 3,
+                blurRadius: 10,
+                offset: const Offset(0, 1), // changes position of shadow
+              ),
+            ],
             color: disable ? Colors.grey : ColorsUtil.mainButton),
         alignment: Alignment.center,
         child: Text(
