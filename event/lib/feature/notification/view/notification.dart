@@ -1,5 +1,7 @@
 import 'package:event/feature/notification/view/widgets/notification_view.dart';
 import 'package:event/utils/colors.dart';
+import 'package:event/utils/strings.dart';
+import 'package:event/widgets/base_widget.dart';
 import 'package:flutter/material.dart';
 
 class NotificationPage extends StatefulWidget {
@@ -13,15 +15,7 @@ class _NotificationPageState extends State<NotificationPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text(
-          'Notification',
-          style: TextStyle(
-            color: Colors.white,
-          ),
-        ),
-        backgroundColor: ColorsUtil.primaryBg,
-      ),
+      appBar: BaseWidget.appbar(title: Strings.barNotification),
       backgroundColor: Colors.grey.withOpacity(0.12),
       body: const SingleChildScrollView(
         child: Column(

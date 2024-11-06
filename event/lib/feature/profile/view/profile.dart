@@ -1,8 +1,12 @@
 import 'package:event/feature/auth/view/login.dart';
 import 'package:event/feature/profile/controller/profile_controller.dart';
+import 'package:event/feature/profile/view/change_password.dart';
+import 'package:event/feature/profile/view/detail_profile.dart';
 import 'package:event/feature/profile/view/widgets/menu_view.dart';
 import 'package:event/utils/colors.dart';
+import 'package:event/utils/strings.dart';
 import 'package:event/widgets/base_widget.dart';
+import 'package:event/widgets/bottom_button.dart';
 import 'package:event/widgets/secondary_button.dart';
 import 'package:event/widgets/user_profile_big.dart';
 import 'package:flutter/material.dart';
@@ -21,29 +25,13 @@ class _ProfilePageState extends State<ProfilePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text(
-          'Profile',
-          style: TextStyle(
-            color: Colors.white,
-          ),
-        ),
-        backgroundColor: ColorsUtil.primaryBg,
-      ),
-      bottomSheet: Container(
-        height: 100,
-        color: Colors.white,
-        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-        child: Column(
-          children: [
-            SecondaryButton(
-                text: 'Log Out', //controller.secondaryText,
-                onClick: () {
-                  BaseWidget.pushToTop(context, const Login());
-                }),
-          ],
-        ),
-      ),
+      appBar: BaseWidget.appbar(title: Strings.barProfile),
+      bottomSheet: BottomButton(
+          bottomEnum: BottomEnum.secondary,
+          text: Strings.logout,
+          onClick: () {
+            BaseWidget.pushToTop(context, const Login());
+          }),
       body: Column(
         children: [
           Column(
@@ -85,13 +73,17 @@ class _ProfilePageState extends State<ProfilePage> {
               MenuView(
                 menu: 'Profile Information',
                 iconMenu: Icons.person,
-                onClick: () {},
+                onClick: () {
+                  BaseWidget.push(context, const DetailProfile());
+                },
               ),
               const SizedBox(height: 6),
               MenuView(
                 menu: 'Change Password',
                 iconMenu: Icons.lock,
-                onClick: () {},
+                onClick: () {
+                  BaseWidget.push(context, const ChangePassword());
+                },
               ),
               const SizedBox(height: 6),
               MenuView(

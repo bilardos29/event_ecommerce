@@ -28,50 +28,51 @@ class Strings {
   static const String saldoAnda = 'Saldo anda';
   static const String lihatSaldo = 'Lihat Saldo';
   static const String pastVideoheader = 'All past event video';
+  static const String pickYourAction = 'Pick your action';
+
+  //history
+  static const String barHistory = 'History';
+
+  //notification
+  static const String barNotification = 'Notification';
+
+  //profile
+  static const String barProfile = 'Profile';
+  static const String barDetailProfile = 'Detail Profile';
+  static const String barChangePassword = 'Change Password';
+  static const String newPassword = 'Input your new password';
+  static const String newRePassword = 'Input your new re-password';
+
+  //event
+  static const String barEvent = 'Events';
+  static const String barDetailEvent = 'Detail Event';
+
+  //partner
+  static const String barPartner = 'Partners';
+  static const String barDetailPartner = 'Detail Partner';
+
+  //mycard
+  static const String barMyCard = 'My Card';
+
+  //referral
+  static const String barReferral = 'My Card';
 
   //menu
-  static const String pbb = 'PBB';
-  static const String listrik = 'Listrik';
-  static const String pulsa = 'Pulsa';
-  static const String pdam = 'PDAM';
-  static const String pgn = 'PGN';
-  static const String televisi = 'Televisi';
-  static const String musik = 'Musik';
-  static const String game = 'Game';
-  static const String makanan = 'Makanan';
-  static const String kurban = 'Kurban';
-  static const String zakat = 'zakat';
-  static const String data = 'Data';
-
-  static const String pembayaran = 'Pembayaran';
-
   static const String home = 'Home';
   static const String profile = 'Profile';
   static const String history = 'History';
   static const String notification = 'Notification';
 
-  //topup
-  static const String topupHeader = 'Silahkan masukan';
-  static const String topupHeaderNote = 'nominal Top Up';
-  static const String topupInput = 'masukan nominal Top Up';
-
   //button
   static const String login = 'Log In';
   static const String disini = 'di sini';
   static const String register = 'Sign Up';
-  static const String topup = 'Top Up';
-  static const String bayar = 'Bayar';
   static const String showMore = 'Show more';
   static const String editProfile = 'Edit Profile';
-  static const String logout = 'Logout';
-  static const String simpan = 'Simpan';
-  static const String batalkan = 'Batalkan';
+  static const String logout = 'Log Out';
+  static const String save = 'Save';
   static const String send = 'Send';
   static const String forgotPassword = 'Forgot your password?';
-
-  //label
-  static const String kembali = 'Kembali';
-
 
 
 }

@@ -1,3 +1,4 @@
+import 'package:event/utils/colors.dart';
 import 'package:event/utils/strings.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
@@ -18,34 +19,25 @@ class BaseWidget {
     ScaffoldMessenger.of(ctx).showSnackBar(SnackBar(content: Text(message)));
   }
 
-  static AppBar appbar({String title = '', VoidCallback? onBack}) {
+  static AppBar appbar(
+      {String title = '', VoidCallback? onBack, bool withBackAction = false}) {
     return AppBar(
+      backgroundColor: ColorsUtil.primaryBg,
       title: Text(
         title,
-        style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
-      ),
-      centerTitle: true,
-      leadingWidth: 100,
-      leading: InkWell(
-        onTap: onBack,
-        child: Center(
-          child: Row(
-            children: [
-              const SizedBox(width: 10),
-              Icon(
-                Icons.arrow_back,
-                size: 24,
-                color: Colors.grey[700]!,
-              ),
-              const SizedBox(width: 8),
-              Text(
-                Strings.kembali,
-                style: TextStyle(color: Colors.grey[700]!),
-              ),
-            ],
-          ),
+        style: const TextStyle(
+          color: Colors.white,
         ),
       ),
+      leading: withBackAction
+          ? InkWell(
+              onTap: onBack,
+              child: const Icon(
+                Icons.arrow_back,
+                color: Colors.white,
+              ),
+            )
+          : null,
     );
   }
 
@@ -70,7 +62,8 @@ class BaseWidget {
     DateTime dateTimeWithTimeZone = DateTime.parse(dateStringWithTimeZone);
     print(dateTimeWithTimeZone);
 
-    String formattedDate = DateFormat('dd MMMM yyyy kk:mm ').format(dateTimeWithTimeZone);
+    String formattedDate =
+        DateFormat('dd MMMM yyyy kk:mm ').format(dateTimeWithTimeZone);
     print(formattedDate);
     return formattedDate;
   }

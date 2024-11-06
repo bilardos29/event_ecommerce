@@ -18,7 +18,7 @@ class UserProfileSmall extends StatelessWidget {
         border: Border.all(color: Colors.black26, width: 0.5),
         borderRadius: BorderRadius.circular(40),
         color: img == null || img!.isEmpty
-            ? ColorsUtil.primaryBg.withOpacity(0.6)
+            ? Colors.red.withOpacity(0.6)
             : Colors.transparent,
       ),
       child: img == null || img!.isEmpty ? TextImg(name!) : Image.network(img!),

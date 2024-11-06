@@ -1,4 +1,6 @@
-import 'package:event/widgets/main_button.dart';
+import 'package:event/utils/strings.dart';
+import 'package:event/widgets/base_widget.dart';
+import 'package:event/widgets/bottom_button.dart';
 import 'package:event/widgets/rounded_text_field.dart';
 import 'package:flutter/material.dart';
 
@@ -10,58 +12,68 @@ class DetailProfile extends StatefulWidget {
 }
 
 class _DetailProfileState extends State<DetailProfile> {
-
-  TextEditingController email = TextEditingController();
   TextEditingController firstName = TextEditingController();
   TextEditingController lastName = TextEditingController();
-
-  // void updateInputText() {
-  //   email.text = homeController.user.email ?? '';
-  //   firstName.text = homeController.user.firstName ?? '';
-  //   lastName.text = homeController.user.lastName ?? '';
-  //   setState(() {});
-  // }
+  TextEditingController phone = TextEditingController();
+  TextEditingController address = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(children: [
-        const Text('Email'),
-        const SizedBox(height: 12),
-        RoundedTextField(
-          textController: email,
-          prefix: Icons.alternate_email,
-          disabled: true,
+      appBar: BaseWidget.appbar(
+          title: Strings.barDetailProfile,
+          onBack: () {
+            Navigator.of(context).pop();
+          },
+          withBackAction: true),
+      bottomSheet: BottomButton(
+          text: Strings.save,
+          onClick: () {
+            Navigator.of(context).pop();
+          }),
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const SizedBox(height: 10),
+              const Text('First Name'),
+              const SizedBox(height: 10),
+              RoundedTextField(
+                textController: firstName,
+                prefix: Icons.person,
+                disabled: true, //controller.mainText != Strings.simpan,
+              ),
+              const SizedBox(height: 20),
+              const Text('Last Name'),
+              const SizedBox(height: 10),
+              RoundedTextField(
+                textController: lastName,
+                prefix: Icons.person,
+                disabled: true, //controller.mainText != Strings.simpan,
+              ),
+              const SizedBox(height: 20),
+              const Text('Phone Number'),
+              const SizedBox(height: 10),
+              RoundedTextField(
+                textController: lastName,
+                prefix: Icons.person,
+                disabled: true, //controller.mainText != Strings.simpan,
+              ),
+              const SizedBox(height: 20),
+              const Text('Address'),
+              const SizedBox(height: 10),
+              RoundedTextField(
+                textController: lastName,
+                prefix: Icons.add_road,
+                disabled: true, //controller.mainText != Strings.simpan,
+              ),
+            ],
+          ),
         ),
-        const SizedBox(height: 20),
-        const Text('Nama Depan'),
-        const SizedBox(height: 12),
-        RoundedTextField(
-          textController: firstName,
-          prefix: Icons.person,
-          disabled: true,//controller.mainText != Strings.simpan,
-        ),
-        const SizedBox(height: 20),
-        const Text('Nama Belakang'),
-        const SizedBox(height: 12),
-        RoundedTextField(
-          textController: lastName,
-          prefix: Icons.person,
-          disabled: true,//controller.mainText != Strings.simpan,
-        ),
-        const SizedBox(height: 40),
-        MainButton(
-            text: 'Update',//controller.mainText,
-            onClick: () {
-              // controller.updateProfile(
-              //     firstName.text, lastName.text,
-              //     onUnauthorized: () {},
-              //     onError: (err) {},
-              //     onSuccess: (user) {
-              //       homeController.updateUser(user);
-              //     });
-            }),
-      ],),
+      ),
     );
   }
 }
