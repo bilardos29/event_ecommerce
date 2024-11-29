@@ -44,7 +44,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
       ),
       body: Stack(
         children: [
-          const BackgroundCard(),
+          BackgroundCard(),
           SingleChildScrollView(
             child: Container(
               height: MediaQuery.of(context).size.height,

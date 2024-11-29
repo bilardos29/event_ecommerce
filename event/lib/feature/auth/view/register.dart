@@ -72,7 +72,7 @@ class _RegisterState extends State<Register> {
       ),
       body: Stack(
         children: [
-          const BackgroundCard(),
+          BackgroundCard(),
           SingleChildScrollView(
             child: Container(
               height: MediaQuery.of(context).size.height,

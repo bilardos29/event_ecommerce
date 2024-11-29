@@ -1,15 +1,11 @@
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:event/feature/auth/view/widgets/bg_card.dart';
 import 'package:event/feature/dashboard/controller/dashboard_controller.dart';
-import 'package:event/feature/dashboard/view/widgets/header_view.dart';
-import 'package:event/feature/dashboard/view/widgets/menu_button.dart';
-import 'package:event/feature/event/view/list_event.dart';
-import 'package:event/feature/mycard/view/mycard.dart';
-import 'package:event/feature/partner/view/list_partner.dart';
+import 'package:event/feature/dashboard/view/widgets/home_menu.dart';
+import 'package:event/feature/dashboard/view/widgets/virtual_card.dart';
+import 'package:event/utils/colors.dart';
 import 'package:event/utils/strings.dart';
-import 'package:event/widgets/base_widget.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:provider/provider.dart';
 
 class HomePage extends StatefulWidget {
@@ -25,114 +21,115 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SingleChildScrollView(
-        child: Column(
+        body: Stack(
+      children: [
+        BackgroundCard(size: 210),
+        Column(
           children: [
-            HeaderView(name: 'Bilardo Situmorang'),
-            const SizedBox(height: 20),
-            Container(
-              height: 200,
-              margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(8),
-              ),
-              child: Image.asset(
-                'images/banner/img_banner_1.png',
-                fit: BoxFit.fitWidth,
-              ),
-            ),
+            const SizedBox(height: 72),
+            const VirtualCard(),
+            const SizedBox(height: 24),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 20),
+              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 4),
               child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Text(
-                    Strings.pickYourAction,
-                    style: TextStyle(fontSize: 14, fontWeight: FontWeight.w600),
-                  ),
-                  const SizedBox(height: 12),
                   Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      Expanded(
-                        child: MenuButton(
-                            title: Strings.barEvent,
-                            image: 'ic_event.png',
-                            onClick: () {
-                              BaseWidget.push(context, const ListEvent());
-                            }),
+                      HomeMenu(
+                        img: 'ic_event.png',
+                        menu: 'Events',
+                        onClick: () {},
                       ),
-                      const SizedBox(width: 20),
-                      Expanded(
-                        child: MenuButton(
-                            title: Strings.barPartner,
-                            image: 'ic_partner.png',
-                            onClick: () {
-                              BaseWidget.push(context, const ListPartner());
-                            }),
+                      HomeMenu(
+                        img: 'ic_calendar.png',
+                        menu: 'Calendar',
+                        onClick: () {},
+                      ),
+                      HomeMenu(
+                        img: 'ic_referral.png',
+                        menu: 'Referrals',
+                        onClick: () {},
                       ),
                     ],
                   ),
-                  const SizedBox(height: 20),
                   Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      Expanded(
-                        child: MenuButton(
-                            title: Strings.barMyCard,
-                            image: 'ic_card.png',
-                            onClick: () {
-                              BaseWidget.push(context, const MyVirtualCard());
-                            }),
+                      HomeMenu(
+                        img: 'ic_partnership.png',
+                        menu: 'SAP',
+                        onClick: () {},
                       ),
-                      const SizedBox(width: 20),
-                      Expanded(
-                        child: MenuButton(
-                            title: Strings.barReferral,
-                            image: 'ic_referral.png',
-                            onClick: () {
-                              // BaseWidget.push(context, const ());
-                            }),
+                      HomeMenu(
+                        img: 'ic_benefit.png',
+                        menu: 'Member Benefit',
+                        onClick: () {},
+                      ),
+                      HomeMenu(
+                        img: 'ic_announce.png',
+                        menu: 'Announcement',
+                        onClick: () {},
                       ),
                     ],
                   ),
                 ],
               ),
             ),
-            Container(
-              height: 270,
-              padding:
-                  const EdgeInsets.symmetric(horizontal: 16, vertical: 20),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const Text(
-                    Strings.pastVideoheader,
-                    style: TextStyle(
-                        fontSize: 14, fontWeight: FontWeight.w600),
-                  ),
-                  const SizedBox(height: 12),
-                  CarouselSlider.builder(
-                      itemCount: controller.listBanner.length,
-                      itemBuilder: (context, idx, pgIdx) {
-                        return Image.asset(
-                          'images/banner/${controller.listBanner[idx].link}',
+            Expanded(
+              flex: 2,
+              child: Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    const Text(
+                      Strings.pastVideoheader,
+                      style:
+                          TextStyle(fontSize: 14, fontWeight: FontWeight.w600),
+                    ),
+                    const SizedBox(height: 12),
+                    CarouselSlider.builder(
+                        itemCount: controller.listBanner.length,
+                        itemBuilder: (context, idx, pgIdx) {
+                          return Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 4),
+                            child: Container(
+                              height: 170,
+                              width: double.infinity,
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(12),
+                                  color: Colors.black.withOpacity(0.7),
+                                  image: DecorationImage(
+                                      fit: BoxFit.fitWidth,
+                                      opacity: 0.7,
+                                      image: AssetImage(
+                                          'images/banner/${controller.listBanner[idx].link}'))),
+                              child: const Icon(
+                                Icons.play_arrow,
+                                size: 56,
+                                color: Colors.white,
+                              ),
+                            ),
+                          );
+                        },
+                        options: CarouselOptions(
                           height: 170,
-                          fit: BoxFit.fitHeight,
-                        );
-                      },
-                      options: CarouselOptions(
-                        height: 170,
-                        viewportFraction: 0.9,
-                        enlargeCenterPage: false,
-                        autoPlay: true,
-                      )),
-                ],
+                          viewportFraction: 0.9,
+                          enlargeCenterPage: false,
+                          autoPlay: true,
+                        )),
+                  ],
+                ),
               ),
             ),
           ],
         ),
-      ),
-    );
+      ],
+    ));
   }
 }

@@ -2,11 +2,13 @@ import 'package:event/utils/colors.dart';
 import 'package:flutter/material.dart';
 
 class BackgroundCard extends StatelessWidget {
-  const BackgroundCard({Key? key}) : super(key: key);
+  BackgroundCard({this.size, Key? key}) : super(key: key);
+
+  double? size;
 
   @override
   Widget build(BuildContext context) {
-    double size = MediaQuery.of(context).size.height / 2.7;
+    size = size ?? MediaQuery.of(context).size.height / 2.7;
     return Column(
       children: [
         Container(

@@ -27,7 +27,7 @@ class Strings {
   static const String selamatDatang = 'Selamat datang,';
   static const String saldoAnda = 'Saldo anda';
   static const String lihatSaldo = 'Lihat Saldo';
-  static const String pastVideoheader = 'All past event video';
+  static const String pastVideoheader = 'Past event video';
   static const String pickYourAction = 'Pick your action';
 
   //history

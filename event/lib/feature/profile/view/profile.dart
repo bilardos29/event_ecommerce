@@ -87,8 +87,22 @@ class _ProfilePageState extends State<ProfilePage> {
               ),
               const SizedBox(height: 6),
               MenuView(
+                menu: 'Change Interest',
+                iconMenu: Icons.interests,
+                onClick: () {
+                  BaseWidget.push(context, const ChangePassword());
+                },
+              ),
+              const SizedBox(height: 6),
+              MenuView(
                 menu: 'FAQ',
                 iconMenu: Icons.question_answer,
+                onClick: () {},
+              ),
+              const SizedBox(height: 6),
+              MenuView(
+                menu: 'Contact Us',
+                iconMenu: Icons.phone,
                 onClick: () {},
               ),
             ],
