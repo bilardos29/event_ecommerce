@@ -6,7 +6,7 @@ class VirtualCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 160,
+      height: 210,
       width: double.infinity,
       margin: const EdgeInsets.symmetric(
         horizontal: 20,
@@ -16,55 +16,68 @@ class VirtualCard extends StatelessWidget {
         borderRadius: BorderRadius.circular(12),
         color: Colors.black,
       ),
-      child: const Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            'Bilardo Situmorang',
-            style: TextStyle(
-                color: Color(0xffa67c00),
-                fontSize: 22,
-                fontWeight: FontWeight.bold),
-          ),
-          SizedBox(height: 24),
-          Text(
-            '1234 0012 0000 1234',
-            style: TextStyle(
-                color: Color(0xffa67c00),
-                fontSize: 24,
-                fontFamily: 'Mono',
-                fontWeight: FontWeight.bold),
-          ),
-          SizedBox(height: 4),
           Row(
+            children: [
+              Image.asset('images/assets/logo_eo.png', height: 40, width: 40),
+              const SizedBox(width: 4),
+              const Text(
+                'Indonesia',
+                style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 13,
+                    fontWeight: FontWeight.bold),
+              )
+            ],
+          ),
+          const SizedBox(height: 32),
+          const Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            crossAxisAlignment: CrossAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.end,
             children: [
               Column(
-                mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
+                    '007',
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 24,
+                        fontFamily: 'Mono',
+                        fontWeight: FontWeight.bold),
+                  ),
+                  SizedBox(height: 2),
+                  Text(
+                    'Michel Sanjaya',
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold),
+                  ),
+                  SizedBox(height: 2),
+                  Text(
                     'Valid Until',
                     style: TextStyle(
-                        color: Color(0xffa67c00),
-                        fontSize: 12,
+                        color: Colors.white,
+                        fontSize: 10,
                         fontWeight: FontWeight.bold),
                   ),
                   Text(
-                    '11/24',
+                    '07/25',
                     style: TextStyle(
-                        color: Color(0xffa67c00),
-                        fontSize: 12,
+                        color: Colors.white,
+                        fontSize: 14,
                         fontWeight: FontWeight.bold),
                   ),
                 ],
               ),
               Icon(
-                Icons.qr_code,
+                Icons.qr_code_2_rounded,
                 color: Colors.white,
-                size: 28,
+                size: 48,
               )
             ],
           ),

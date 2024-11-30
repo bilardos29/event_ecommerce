@@ -65,12 +65,12 @@ class _HomePageState extends State<HomePage> {
                       ),
                       HomeMenu(
                         img: 'ic_benefit.png',
-                        menu: 'Member Benefit',
+                        menu: 'Member Benefits',
                         onClick: () {},
                       ),
                       HomeMenu(
                         img: 'ic_announce.png',
-                        menu: 'Announcement',
+                        menu: 'Announcements',
                         onClick: () {},
                       ),
                     ],

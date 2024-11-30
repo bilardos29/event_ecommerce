@@ -28,7 +28,7 @@ class HomeMenu extends StatelessWidget {
               padding: const EdgeInsets.all(14),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(12),
-                color: const Color(0xff03396c),
+                color: ColorsUtil.mainButton,
                 boxShadow: [
                   BoxShadow(
                     color: Colors.grey.withOpacity(0.7),
