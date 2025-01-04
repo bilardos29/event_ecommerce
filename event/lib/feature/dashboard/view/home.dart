@@ -3,8 +3,10 @@ import 'package:event/feature/auth/view/widgets/bg_card.dart';
 import 'package:event/feature/dashboard/controller/dashboard_controller.dart';
 import 'package:event/feature/dashboard/view/widgets/home_menu.dart';
 import 'package:event/feature/dashboard/view/widgets/virtual_card.dart';
-import 'package:event/utils/colors.dart';
+import 'package:event/feature/event/view/list_event.dart';
+import 'package:event/feature/member_benefit/view/list_member_benefit.dart';
 import 'package:event/utils/strings.dart';
+import 'package:event/widgets/base_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -40,7 +42,9 @@ class _HomePageState extends State<HomePage> {
                       HomeMenu(
                         img: 'ic_event.png',
                         menu: 'Events',
-                        onClick: () {},
+                        onClick: () {
+                          BaseWidget.push(context, const ListEvent());
+                        },
                       ),
                       HomeMenu(
                         img: 'ic_calendar.png',
@@ -61,12 +65,16 @@ class _HomePageState extends State<HomePage> {
                       HomeMenu(
                         img: 'ic_partnership.png',
                         menu: 'SAP',
-                        onClick: () {},
+                        onClick: () {
+
+                        },
                       ),
                       HomeMenu(
                         img: 'ic_benefit.png',
                         menu: 'Member Benefits',
-                        onClick: () {},
+                        onClick: () {
+                          BaseWidget.push(context, const ListMemberBenefit());
+                        },
                       ),
                       HomeMenu(
                         img: 'ic_announce.png',

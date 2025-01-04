@@ -40,6 +40,7 @@ class Strings {
   static const String barProfile = 'Profile';
   static const String barDetailProfile = 'Detail Profile';
   static const String barChangePassword = 'Change Password';
+  static const String barChangeInterest = 'Change Interest';
   static const String newPassword = 'Input your new password';
   static const String newRePassword = 'Input your new re-password';
 

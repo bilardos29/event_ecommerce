@@ -4,7 +4,6 @@ import 'package:event/widgets/base_widget.dart';
 import 'package:event/feature/auth/view/widgets/header_label.dart';
 import 'package:event/widgets/main_button.dart';
 import 'package:event/widgets/rounded_text_field.dart';
-import 'package:event/widgets/text_button.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -28,12 +27,13 @@ class _RegisterState extends State<Register> {
 
   bool showPass = false;
   bool showRepass = false;
+  String memberCategory = 'EO Member';
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       bottomSheet: Container(
-        height: 120,
+        height: 80,
         color: Colors.white,
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
         child: Column(
@@ -49,24 +49,6 @@ class _RegisterState extends State<Register> {
                 });
               },
             ),
-            const SizedBox(height: 12),
-            // Row(
-            //   mainAxisAlignment: MainAxisAlignment.center,
-            //   children: [
-            //     const Text(
-            //       Strings.registerNote,
-            //       textAlign: TextAlign.center,
-            //       style: TextStyle(fontSize: 12, color: Colors.black45),
-            //     ),
-            //     const SizedBox(width: 4),
-            //     TextButtons(
-            //       Strings.disini,
-            //       onClick: () {
-            //         // BaseWidget.pushToTop(context, const LoginPage());
-            //       },
-            //     ),
-            //   ],
-            // ),
           ],
         ),
       ),
@@ -75,7 +57,6 @@ class _RegisterState extends State<Register> {
           BackgroundCard(),
           SingleChildScrollView(
             child: Container(
-              height: MediaQuery.of(context).size.height,
               padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
               child: Column(
                 children: [
@@ -90,7 +71,7 @@ class _RegisterState extends State<Register> {
                         child: const Icon(
                           Icons.arrow_back,
                           size: 24,
-                          color: Colors.white,
+                          color: Colors.black,
                         ),
                       ),
                     ],
@@ -117,6 +98,53 @@ class _RegisterState extends State<Register> {
                     prefix: Icons.person,
                     hintText: Strings.namaBelakang,
                     textController: lastname,
+                  ),
+                  const SizedBox(height: 20),
+                  Container(
+                    width: double.infinity,
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 16, vertical: 12),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(8),
+                      color: Colors.white,
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.grey.withOpacity(0.5),
+                          spreadRadius: 1,
+                          blurRadius: 10,
+                          offset: const Offset(0, 3),
+                        ),
+                      ],
+                    ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const Text('Member Category',
+                            style: TextStyle(
+                                fontSize: 15,
+                                color: Colors.black87,
+                                fontWeight: FontWeight.w400)),
+                        const SizedBox(height: 4),
+                        DropdownButton<String>(
+                          isExpanded: true,
+                          items: <String>['EO Member', 'SLP', 'NextGen']
+                              .map((String value) {
+                            return DropdownMenuItem<String>(
+                              value: value,
+                              child: Text(value,
+                                  style: const TextStyle(fontSize: 12)),
+                              onTap: () {
+                                setState(() {
+                                  memberCategory = value;
+                                });
+                              },
+                            );
+                          }).toList(),
+                          value: memberCategory,
+                          onChanged: (_) {},
+                        ),
+                      ],
+                    ),
                   ),
                   const SizedBox(height: 20),
                   RoundedTextField(
@@ -148,6 +176,7 @@ class _RegisterState extends State<Register> {
                       });
                     },
                   ),
+                  const SizedBox(height: 100),
                 ],
               ),
             ),

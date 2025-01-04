@@ -24,7 +24,7 @@ class HeaderLabel extends StatelessWidget {
               style: const TextStyle(
                 fontSize: 34,
                 fontWeight: FontWeight.w600,
-                color: Colors.white,
+                color: Colors.black,
               ),
             ),
             const SizedBox(height: 2),
@@ -33,7 +33,7 @@ class HeaderLabel extends StatelessWidget {
               textAlign: TextAlign.left,
               style: const TextStyle(
                 fontSize: 16,
-                color: Colors.white,
+                color: Colors.black,
               ),
             ),
           ]),

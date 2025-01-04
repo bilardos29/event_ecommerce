@@ -3,8 +3,8 @@ import 'package:event/feature/auth/view/login.dart';
 import 'package:event/feature/dashboard/controller/dashboard_controller.dart';
 import 'package:event/feature/event/controller/event_controller.dart';
 import 'package:event/feature/history/controller/history_controller.dart';
+import 'package:event/feature/member_benefit/controller/member_benefit_controller.dart';
 import 'package:event/feature/notification/controller/notification_controller.dart';
-import 'package:event/feature/partner/controller/partner_controller.dart';
 import 'package:event/feature/profile/controller/profile_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -37,7 +37,7 @@ class MyApp extends StatelessWidget {
           create: (context) => EventController(),
         ),
         ChangeNotifierProvider(
-          create: (context) => PartnerController(),
+          create: (context) => MemberBenefitController(),
         ),
         ChangeNotifierProvider(
           create: (context) => HistoryController(),

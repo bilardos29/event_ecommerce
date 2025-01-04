@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class PartnerCard extends StatelessWidget {
-  const PartnerCard({required this.onClick, Key? key,}) : super(key: key);
+class MemberBenefitCard extends StatelessWidget {
+  const MemberBenefitCard({required this.onClick, Key? key,}) : super(key: key);
 
   final VoidCallback onClick;
 

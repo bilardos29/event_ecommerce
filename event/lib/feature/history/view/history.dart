@@ -18,24 +18,25 @@ class _HistoryPageState extends State<HistoryPage> {
       length: 2,
       child: Scaffold(
         appBar: AppBar(
-          backgroundColor: ColorsUtil.primaryBg,
+          backgroundColor: Colors.white,
           title: const Text(
             Strings.barHistory,
             style: TextStyle(
-              color: Colors.white,
+              color: ColorsUtil.mainButton,
+              fontWeight: FontWeight.w600,
             ),
           ),
-          bottom: const TabBar(indicatorColor: Colors.white, tabs: [
+          bottom: const TabBar(indicatorColor: ColorsUtil.mainButton, tabs: [
             Tab(
               child: Text(
                 'Active',
-                style: TextStyle(fontSize: 16, color: Colors.white),
+                style: TextStyle(fontSize: 16, color: ColorsUtil.mainButton),
               ),
             ),
             Tab(
               child: Text(
                 'Past',
-                style: TextStyle(fontSize: 16, color: Colors.white),
+                style: TextStyle(fontSize: 16, color: ColorsUtil.mainButton),
               ),
             ),
           ]),

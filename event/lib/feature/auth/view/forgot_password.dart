@@ -62,7 +62,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                         child: const Icon(
                           Icons.arrow_back,
                           size: 24,
-                          color: Colors.white,
+                          color: Colors.black,
                         ),
                       ),
                     ],

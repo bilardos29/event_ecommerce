@@ -1,13 +1,12 @@
 import 'package:event/feature/auth/view/login.dart';
 import 'package:event/feature/profile/controller/profile_controller.dart';
+import 'package:event/feature/profile/view/change_interest.dart';
 import 'package:event/feature/profile/view/change_password.dart';
 import 'package:event/feature/profile/view/detail_profile.dart';
 import 'package:event/feature/profile/view/widgets/menu_view.dart';
-import 'package:event/utils/colors.dart';
 import 'package:event/utils/strings.dart';
 import 'package:event/widgets/base_widget.dart';
 import 'package:event/widgets/bottom_button.dart';
-import 'package:event/widgets/secondary_button.dart';
 import 'package:event/widgets/user_profile_big.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -90,7 +89,7 @@ class _ProfilePageState extends State<ProfilePage> {
                 menu: 'Change Interest',
                 iconMenu: Icons.interests,
                 onClick: () {
-                  BaseWidget.push(context, const ChangePassword());
+                  BaseWidget.push(context, const ChangeInterest());
                 },
               ),
               const SizedBox(height: 6),

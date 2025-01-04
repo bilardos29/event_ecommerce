@@ -1,16 +1,15 @@
 import 'package:event/utils/strings.dart';
 import 'package:event/widgets/base_widget.dart';
-import 'package:event/widgets/main_button.dart';
 import 'package:flutter/material.dart';
 
-class DetailPartner extends StatefulWidget {
-  const DetailPartner({Key? key}) : super(key: key);
+class DetailMemberBenefit extends StatefulWidget {
+  const DetailMemberBenefit({Key? key}) : super(key: key);
 
   @override
-  State<DetailPartner> createState() => _DetailPartnerState();
+  State<DetailMemberBenefit> createState() => _DetailMemberBenefitState();
 }
 
-class _DetailPartnerState extends State<DetailPartner> {
+class _DetailMemberBenefitState extends State<DetailMemberBenefit> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -66,12 +65,7 @@ class _DetailPartnerState extends State<DetailPartner> {
               ),
             ),
             Image.asset('images/sample/sample_3.png'),
-            const SizedBox(height: 8),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-              child: MainButton(text: 'Register', onClick: () {}),
-            ),
-            const SizedBox(height: 20),
+            const SizedBox(height: 30),
           ],
         ),
       ),

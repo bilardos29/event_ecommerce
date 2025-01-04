@@ -7,6 +7,7 @@ class RoundedTextField extends StatefulWidget {
     this.onFocus,
     this.onUnFocus,
     this.radius = 5,
+    this.width,
     this.maxLines = 1,
     this.maxLength,
     this.textInputType = TextInputType.text,
@@ -27,6 +28,7 @@ class RoundedTextField extends StatefulWidget {
   final Function()? onFocus;
   final Function()? onUnFocus;
   final double radius;
+  final double? width;
   final int maxLines;
   final int? maxLength;
   final TextInputType textInputType;
@@ -77,7 +79,7 @@ class _RoundedTextFieldState extends State<RoundedTextField> {
       children: [
         Container(
           height: widget.maxLines == 1 ? 50 : null,
-          width: double.maxFinite,
+          width: widget.width ?? double.maxFinite,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(8),
             color: Colors.white,

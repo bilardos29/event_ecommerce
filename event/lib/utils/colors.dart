@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class ColorsUtil{
 
-  static const Color mainButton = Color(0xFF0c0c31);
+  static const Color mainButton = Color(0xFF0c0c31);//1D007F);//0c0c31);
   static const Color primaryText = Color(0xFF000000);
   static const Color secondaryText = Color(0xFFFFFFFF);
   static const Color primaryBg = Color(0xFF0c0c31);

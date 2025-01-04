@@ -1,5 +1,4 @@
 import 'package:event/feature/notification/view/widgets/notification_view.dart';
-import 'package:event/utils/colors.dart';
 import 'package:event/utils/strings.dart';
 import 'package:event/widgets/base_widget.dart';
 import 'package:flutter/material.dart';

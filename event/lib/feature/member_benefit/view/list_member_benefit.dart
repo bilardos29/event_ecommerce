@@ -1,17 +1,17 @@
-import 'package:event/feature/partner/view/detail_partner.dart';
-import 'package:event/feature/partner/view/widgets/partner_card.dart';
+import 'package:event/feature/member_benefit/view/detail_member_benefit.dart';
+import 'package:event/feature/member_benefit/view/widgets/member_benefit_card.dart';
 import 'package:event/utils/strings.dart';
 import 'package:event/widgets/base_widget.dart';
 import 'package:flutter/material.dart';
 
-class ListPartner extends StatefulWidget {
-  const ListPartner({Key? key}) : super(key: key);
+class ListMemberBenefit extends StatefulWidget {
+  const ListMemberBenefit({Key? key}) : super(key: key);
 
   @override
-  State<ListPartner> createState() => _ListPartnerState();
+  State<ListMemberBenefit> createState() => _ListMemberBenefitState();
 }
 
-class _ListPartnerState extends State<ListPartner> {
+class _ListMemberBenefitState extends State<ListMemberBenefit> {
 
   @override
   Widget build(BuildContext context) {
@@ -44,9 +44,9 @@ class _ListPartnerState extends State<ListPartner> {
                     childAspectRatio: (itemWidth / itemHeight),
                   ),
                   itemBuilder: (ctx, idx) {
-                    return PartnerCard(
+                    return MemberBenefitCard(
                       onClick: () {
-                        BaseWidget.push(ctx, const DetailPartner());
+                        BaseWidget.push(ctx, const DetailMemberBenefit());
                       },
                     );
                   })

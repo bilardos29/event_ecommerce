@@ -22,11 +22,12 @@ class BaseWidget {
   static AppBar appbar(
       {String title = '', VoidCallback? onBack, bool withBackAction = false}) {
     return AppBar(
-      backgroundColor: ColorsUtil.primaryBg,
+      backgroundColor: Colors.white,
       title: Text(
         title,
         style: const TextStyle(
-          color: Colors.white,
+          color: ColorsUtil.primaryBg,
+          fontWeight: FontWeight.w600,
         ),
       ),
       leading: withBackAction
@@ -34,7 +35,7 @@ class BaseWidget {
               onTap: onBack,
               child: const Icon(
                 Icons.arrow_back,
-                color: Colors.white,
+                color: ColorsUtil.primaryBg,
               ),
             )
           : null,

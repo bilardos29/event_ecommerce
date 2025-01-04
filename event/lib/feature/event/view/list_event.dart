@@ -2,7 +2,8 @@ import 'package:event/feature/event/view/detail_event.dart';
 import 'package:event/feature/event/view/widgets/event_card.dart';
 import 'package:event/utils/strings.dart';
 import 'package:event/widgets/base_widget.dart';
-import 'package:event/widgets/bottom_button.dart';
+import 'package:event/widgets/icons_button.dart';
+import 'package:event/widgets/rounded_text_field.dart';
 import 'package:flutter/material.dart';
 
 class ListEvent extends StatefulWidget {
@@ -13,6 +14,8 @@ class ListEvent extends StatefulWidget {
 }
 
 class _ListEventState extends State<ListEvent> {
+  TextEditingController eventName = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
@@ -33,6 +36,22 @@ class _ListEventState extends State<ListEvent> {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              Row(
+                children: [
+                  RoundedTextField(
+                    width: MediaQuery.of(context).size.width - 80,
+                    prefix: Icons.search,
+                    hintText: 'Event Name',
+                    textController: eventName,
+                  ),
+                  const SizedBox(width: 8),
+                  IconsButton(
+                    icon: 'ic_filter.png',
+                    onClick: () {},
+                  ),
+                ],
+              ),
+              const SizedBox(height: 20),
               GridView.builder(
                   shrinkWrap: true,
                   physics: const NeverScrollableScrollPhysics(),
