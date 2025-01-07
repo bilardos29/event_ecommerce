@@ -5,6 +5,7 @@ import 'package:event/feature/dashboard/controller/dashboard_controller.dart';
 import 'package:event/feature/dashboard/view/widgets/home_menu.dart';
 import 'package:event/feature/dashboard/view/widgets/virtual_card.dart';
 import 'package:event/feature/event/view/list_event.dart';
+import 'package:event/feature/event_calendar/view/list_calendar_event.dart';
 import 'package:event/feature/member_benefit/view/list_member_benefit.dart';
 import 'package:event/feature/mycard/view/mycard.dart';
 import 'package:event/feature/sap/view/list_sap.dart';
@@ -55,7 +56,9 @@ class _HomePageState extends State<HomePage> {
                       HomeMenu(
                         img: 'ic_calendar.png',
                         menu: 'Calendar',
-                        onClick: () {},
+                        onClick: () {
+                          BaseWidget.push(context, const ListCalendarEvent());
+                        },
                       ),
                       HomeMenu(
                         img: 'ic_referral.png',

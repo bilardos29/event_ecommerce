@@ -132,8 +132,8 @@ class _RegisterState extends State<Register> {
                   const SizedBox(height: 20),
                   Container(
                     width: double.infinity,
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 16, vertical: 12),
+                    padding: const EdgeInsets.only(left: 16,
+                        right: 16, top: 12),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(8),
                       color: Colors.white,
@@ -151,9 +151,9 @@ class _RegisterState extends State<Register> {
                       children: [
                         const Text('Member Category',
                             style: TextStyle(
-                                fontSize: 15,
+                                fontSize: 16,
                                 color: Colors.black87,
-                                fontWeight: FontWeight.w400)),
+                                fontWeight: FontWeight.w500)),
                         const SizedBox(height: 4),
                         DropdownButton<String>(
                           isExpanded: true,

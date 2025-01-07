@@ -48,6 +48,9 @@ class Strings {
   static const String barEvent = 'Events';
   static const String barDetailEvent = 'Detail Event';
 
+  //event calendar
+  static const String barEventCalendar = 'Events Calendar';
+
   //partner
   static const String barMemberBenefit = 'Member Benefits';
   static const String barDetailMemberBenefit = 'Detail Member Benefit';

@@ -1,20 +1,18 @@
 import 'package:event/feature/event/view/detail_event.dart';
 import 'package:event/feature/event/view/widgets/event_card.dart';
-import 'package:event/widgets/filter_widget.dart';
+import 'package:event/widgets/calendar_plus.dart';
 import 'package:event/utils/strings.dart';
 import 'package:event/widgets/base_widget.dart';
-import 'package:event/widgets/icons_button.dart';
-import 'package:event/widgets/rounded_text_field.dart';
 import 'package:flutter/material.dart';
 
-class ListEvent extends StatefulWidget {
-  const ListEvent({Key? key}) : super(key: key);
+class ListCalendarEvent extends StatefulWidget {
+  const ListCalendarEvent({Key? key}) : super(key: key);
 
   @override
-  State<ListEvent> createState() => _ListEventState();
+  State<ListCalendarEvent> createState() => _ListCalendarEventState();
 }
 
-class _ListEventState extends State<ListEvent> {
+class _ListCalendarEventState extends State<ListCalendarEvent> {
   TextEditingController eventName = TextEditingController();
   TextEditingController location = TextEditingController();
   TextEditingController startDate = TextEditingController();
@@ -30,7 +28,7 @@ class _ListEventState extends State<ListEvent> {
 
     return Scaffold(
       appBar: BaseWidget.appbar(
-          title: Strings.barEvent,
+          title: Strings.barEventCalendar,
           onBack: () {
             Navigator.of(context).pop();
           },
@@ -42,20 +40,31 @@ class _ListEventState extends State<ListEvent> {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Row(
-                children: [
-                  RoundedTextField(
-                    width: MediaQuery.of(context).size.width - 80,
-                    prefix: Icons.search,
-                    hintText: 'Event Name',
-                    textController: eventName,
-                  ),
-                  const SizedBox(width: 8),
-                  IconsButton(
-                    icon: 'ic_filter.png',
-                    onClick: show,
-                  ),
-                ],
+              Container(
+                margin: const EdgeInsets.only(top: 7),
+                child: CalendarPlus(
+                  rowHeight: 60,
+                  selectedDate: DateTime.now(),
+                  onSelectedDate: (selectedDay) {
+                    // controller.selectedDate(selectedDay);
+                    // controller.initSelectedCalendar();
+                  },
+                  onPageChanged: (focusedDay) async {
+                    // controller.selectedDate(focusedDay);
+                    // await controller.initWorkingCalendar();
+                  },
+                  markers: const [
+                    // ...controller.workingCalendars.map(
+                    //       (value) => CalendarMarkerAdapter(
+                    //     date: value.tanggal,
+                    //     isHoliday: value.libur.isNotEmpty == true,
+                    //     widget: WorkingCalendarMarkers(
+                    //       calendar: value,
+                    //     ),
+                    //   ),
+                    // ),
+                  ],
+                ),
               ),
               const SizedBox(height: 20),
               GridView.builder(
@@ -79,21 +88,6 @@ class _ListEventState extends State<ListEvent> {
           ),
         ),
       ),
-    );
-  }
-
-  void show() {
-    showModalBottomSheet(
-      context: context,
-      builder: (BuildContext context) {
-        return FilterWidget(
-          listDropdown: ['EO Member', 'SLP', 'NextGen'],
-          location: location,
-          startDate: startDate,
-          endDate: endDate,
-          dropdownItem: eventCat,
-        );
-      },
     );
   }
 }
