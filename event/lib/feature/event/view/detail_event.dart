@@ -15,7 +15,7 @@ class _DetailEventState extends State<DetailEvent> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: BaseWidget.appbar(
-          title: Strings.barDetailPartner,
+          title: Strings.barDetailEvent,
           onBack: () {
             Navigator.of(context).pop();
           },

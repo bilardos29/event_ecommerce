@@ -49,14 +49,22 @@ class Strings {
   static const String barDetailEvent = 'Detail Event';
 
   //partner
-  static const String barPartner = 'Partners';
-  static const String barDetailPartner = 'Detail Partner';
+  static const String barMemberBenefit = 'Member Benefits';
+  static const String barDetailMemberBenefit = 'Detail Member Benefit';
+
+  //partner
+  static const String barSAP = 'SAPs';
+  static const String barDetailSAP = 'Detail SAP';
+
+  //announcement
+  static const String barAnnounce = 'Announcements';
+  static const String barDetailAnnounce = 'Detail Announcement';
 
   //mycard
-  static const String barMyCard = 'My Card';
+  static const String barMyCard = 'Virtual Card';
 
   //referral
-  static const String barReferral = 'My Card';
+  static const String barReferral = 'Referral';
 
   //menu
   static const String home = 'Home';

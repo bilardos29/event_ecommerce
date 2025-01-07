@@ -100,53 +100,6 @@ class _RegisterState extends State<Register> {
                     textController: lastname,
                   ),
                   const SizedBox(height: 20),
-                  Container(
-                    width: double.infinity,
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 16, vertical: 12),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(8),
-                      color: Colors.white,
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.grey.withOpacity(0.5),
-                          spreadRadius: 1,
-                          blurRadius: 10,
-                          offset: const Offset(0, 3),
-                        ),
-                      ],
-                    ),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        const Text('Member Category',
-                            style: TextStyle(
-                                fontSize: 15,
-                                color: Colors.black87,
-                                fontWeight: FontWeight.w400)),
-                        const SizedBox(height: 4),
-                        DropdownButton<String>(
-                          isExpanded: true,
-                          items: <String>['EO Member', 'SLP', 'NextGen']
-                              .map((String value) {
-                            return DropdownMenuItem<String>(
-                              value: value,
-                              child: Text(value,
-                                  style: const TextStyle(fontSize: 12)),
-                              onTap: () {
-                                setState(() {
-                                  memberCategory = value;
-                                });
-                              },
-                            );
-                          }).toList(),
-                          value: memberCategory,
-                          onChanged: (_) {},
-                        ),
-                      ],
-                    ),
-                  ),
-                  const SizedBox(height: 20),
                   RoundedTextField(
                     prefix: Icons.lock_outline,
                     suffix: showPass
@@ -175,6 +128,54 @@ class _RegisterState extends State<Register> {
                         showRepass = !showRepass;
                       });
                     },
+                  ),
+                  const SizedBox(height: 20),
+                  Container(
+                    width: double.infinity,
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 16, vertical: 12),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(8),
+                      color: Colors.white,
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.grey.withOpacity(0.5),
+                          spreadRadius: 1,
+                          blurRadius: 10,
+                          offset: const Offset(0, 3),
+                        ),
+                      ],
+                    ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const Text('Member Category',
+                            style: TextStyle(
+                                fontSize: 15,
+                                color: Colors.black87,
+                                fontWeight: FontWeight.w400)),
+                        const SizedBox(height: 4),
+                        DropdownButton<String>(
+                          isExpanded: true,
+                          underline: const SizedBox(),
+                          items: <String>['EO Member', 'SLP', 'NextGen']
+                              .map((String value) {
+                            return DropdownMenuItem<String>(
+                              value: value,
+                              child: Text(value,
+                                  style: const TextStyle(fontSize: 12)),
+                              onTap: () {
+                                setState(() {
+                                  memberCategory = value;
+                                });
+                              },
+                            );
+                          }).toList(),
+                          value: memberCategory,
+                          onChanged: (_) {},
+                        ),
+                      ],
+                    ),
                   ),
                   const SizedBox(height: 100),
                 ],

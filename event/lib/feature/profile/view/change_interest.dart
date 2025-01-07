@@ -16,7 +16,7 @@ class _ChangeInterestState extends State<ChangeInterest> {
   bool golf = false;
   bool basket = false;
   bool soccer = false;
-  bool billiard = false;
+  bool tennis = false;
   bool badminton = false;
   bool volley = false;
 
@@ -98,11 +98,11 @@ class _ChangeInterestState extends State<ChangeInterest> {
                                 });
                               }),
                           CheckBoxWidget(
-                              text: 'Billiard',
-                              val: billiard,
+                              text: 'Tennis',
+                              val: tennis,
                               onChange: (val) {
                                 setState(() {
-                                  billiard = !billiard;
+                                  tennis = !tennis;
                                 });
                               }),
                         ],

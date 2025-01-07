@@ -8,9 +8,10 @@ import 'package:flutter/cupertino.dart';
 class DashboardController extends ChangeNotifier implements DashboardInterface {
   List<PastVideoModel> listVideo = [];
   List<BannerModel> listBanner = [
-    BannerModel(link: 'img_banner_1.png'),
-    BannerModel(link: 'img_banner_2.png'),
-    BannerModel(link: 'img_banner_3.png'),
+    BannerModel(link: 'images_1.jpg'),
+    BannerModel(link: 'images_2.jpg'),
+    BannerModel(link: 'images_3.jpg'),
+    BannerModel(link: 'images_4.jpg'),
   ];
   List<NotificationModel> listNotification = [];
   ProfileModel? user;

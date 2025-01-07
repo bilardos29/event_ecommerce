@@ -1,3 +1,4 @@
+import 'package:event/feature/announcement/controller/announcement_controller.dart';
 import 'package:event/feature/auth/controller/auth_controller.dart';
 import 'package:event/feature/auth/view/login.dart';
 import 'package:event/feature/dashboard/controller/dashboard_controller.dart';
@@ -6,6 +7,7 @@ import 'package:event/feature/history/controller/history_controller.dart';
 import 'package:event/feature/member_benefit/controller/member_benefit_controller.dart';
 import 'package:event/feature/notification/controller/notification_controller.dart';
 import 'package:event/feature/profile/controller/profile_controller.dart';
+import 'package:event/feature/sap/controller/sap_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -41,6 +43,11 @@ class MyApp extends StatelessWidget {
         ),
         ChangeNotifierProvider(
           create: (context) => HistoryController(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => SAPController(),
+        ),ChangeNotifierProvider(
+          create: (context) => AnnouncementController(),
         ),
       ],
       child: MaterialApp(

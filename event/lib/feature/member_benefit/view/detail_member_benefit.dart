@@ -14,7 +14,7 @@ class _DetailMemberBenefitState extends State<DetailMemberBenefit> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: BaseWidget.appbar(
-          title: Strings.barDetailPartner,
+          title: Strings.barDetailMemberBenefit,
           onBack: () {
             Navigator.of(context).pop();
           },

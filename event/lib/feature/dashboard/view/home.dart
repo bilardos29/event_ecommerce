@@ -1,10 +1,14 @@
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:event/feature/announcement/view/list_announcement.dart';
 import 'package:event/feature/auth/view/widgets/bg_card.dart';
 import 'package:event/feature/dashboard/controller/dashboard_controller.dart';
 import 'package:event/feature/dashboard/view/widgets/home_menu.dart';
 import 'package:event/feature/dashboard/view/widgets/virtual_card.dart';
 import 'package:event/feature/event/view/list_event.dart';
 import 'package:event/feature/member_benefit/view/list_member_benefit.dart';
+import 'package:event/feature/mycard/view/mycard.dart';
+import 'package:event/feature/sap/view/list_sap.dart';
+import 'package:event/feature/video_player/view/video_player_view.dart';
 import 'package:event/utils/strings.dart';
 import 'package:event/widgets/base_widget.dart';
 import 'package:flutter/material.dart';
@@ -29,7 +33,9 @@ class _HomePageState extends State<HomePage> {
         Column(
           children: [
             const SizedBox(height: 72),
-            const VirtualCard(),
+            VirtualCard(onClick: (){
+              BaseWidget.push(context, const MyVirtualCard());
+            }),
             const SizedBox(height: 24),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 4),
@@ -66,7 +72,7 @@ class _HomePageState extends State<HomePage> {
                         img: 'ic_partnership.png',
                         menu: 'SAP',
                         onClick: () {
-
+                          BaseWidget.push(context, const ListSAP());
                         },
                       ),
                       HomeMenu(
@@ -79,7 +85,9 @@ class _HomePageState extends State<HomePage> {
                       HomeMenu(
                         img: 'ic_announce.png',
                         menu: 'Announcements',
-                        onClick: () {},
+                        onClick: () {
+                          BaseWidget.push(context, const ListAnnouncement());
+                        },
                       ),
                     ],
                   ),
@@ -106,21 +114,26 @@ class _HomePageState extends State<HomePage> {
                         itemBuilder: (context, idx, pgIdx) {
                           return Padding(
                             padding: const EdgeInsets.symmetric(horizontal: 4),
-                            child: Container(
-                              height: 170,
-                              width: double.infinity,
-                              decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(12),
-                                  color: Colors.black.withOpacity(0.7),
-                                  image: DecorationImage(
-                                      fit: BoxFit.fitWidth,
-                                      opacity: 0.7,
-                                      image: AssetImage(
-                                          'images/banner/${controller.listBanner[idx].link}'))),
-                              child: const Icon(
-                                Icons.play_arrow,
-                                size: 56,
-                                color: Colors.white,
+                            child: InkWell(
+                              onTap: () {
+                                BaseWidget.push(context, const VideoPlayerView());
+                              },
+                              child: Container(
+                                height: 170,
+                                width: double.infinity,
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(12),
+                                    color: Colors.black.withOpacity(0.7),
+                                    image: DecorationImage(
+                                        fit: BoxFit.fitWidth,
+                                        opacity: 0.7,
+                                        image: AssetImage(
+                                            'images/sample/${controller.listBanner[idx].link}'))),
+                                child: const Icon(
+                                  Icons.play_arrow,
+                                  size: 56,
+                                  color: Colors.white,
+                                ),
                               ),
                             ),
                           );

@@ -21,7 +21,7 @@ class _ListMemberBenefitState extends State<ListMemberBenefit> {
 
     return Scaffold(
       appBar: BaseWidget.appbar(
-          title: Strings.barPartner,
+          title: Strings.barMemberBenefit,
           onBack: () {
             Navigator.of(context).pop();
           },

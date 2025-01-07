@@ -116,28 +116,17 @@ class _RoundedTextFieldState extends State<RoundedTextField> {
                   const EdgeInsets.symmetric(horizontal: 10, vertical: 14),
               isDense: true,
               border: InputBorder.none,
-              // border: OutlineInputBorder(
-              //   borderRadius: BorderRadius.circular(widget.radius),
-              // ),
-              // enabledBorder: OutlineInputBorder(
-              //   borderRadius: BorderRadius.circular(widget.radius),
-              //   borderSide: BorderSide(color: Colors.grey[400]!),
-              // ),
-              // focusedBorder: OutlineInputBorder(
-              //   borderRadius: BorderRadius.circular(widget.radius),
-              //   borderSide: const BorderSide(color: Colors.black),
-              // ),
-              prefixIcon: Icon(
+              prefixIcon: widget.prefix != null ? Icon(
                 widget.prefix,
                 color: isStringEmpty ? Colors.grey[400]! : Colors.black,
-              ),
-              suffixIcon: InkWell(
+              ) : null,
+              suffixIcon: widget.suffix != null ? InkWell(
                 onTap: widget.onSuffix,
                 child: Icon(
                   widget.suffix,
                   color: isStringEmpty ? Colors.grey[400]! : Colors.black,
                 ),
-              ),
+              ) : null,
             ),
             maxLines: widget.maxLines,
             maxLength: widget.maxLength,
