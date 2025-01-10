@@ -1,4 +1,3 @@
-import 'package:event/utils/colors.dart';
 import 'package:flutter/material.dart';
 
 class UserProfileSmall extends StatelessWidget {

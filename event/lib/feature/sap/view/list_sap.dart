@@ -1,3 +1,6 @@
+import 'package:event/feature/sap/view/detail_sap.dart';
+import 'package:event/feature/sap/view/view/filter_sap.dart';
+import 'package:event/feature/sap/view/view/sap_view.dart';
 import 'package:event/utils/strings.dart';
 import 'package:event/widgets/base_widget.dart';
 import 'package:event/widgets/icons_button.dart';
@@ -12,8 +15,10 @@ class ListSAP extends StatefulWidget {
 }
 
 class _ListSAPState extends State<ListSAP> {
-
+  TextEditingController sapName = TextEditingController();
   TextEditingController location = TextEditingController();
+
+  String dropdownItem = 'All';
 
   @override
   Widget build(BuildContext context) {
@@ -37,22 +42,55 @@ class _ListSAPState extends State<ListSAP> {
                     RoundedTextField(
                       width: MediaQuery.of(context).size.width - 80,
                       prefix: Icons.search,
-                      hintText: 'Location',
-                      textController: location,
+                      hintText: 'SAP Name',
+                      textController: sapName,
                     ),
                     const SizedBox(width: 8),
                     IconsButton(
                       icon: 'ic_filter.png',
-                      onClick: () {},
+                      onClick: show,
                     ),
                   ],
                 ),
               ),
               const SizedBox(height: 20),
+              ListView.builder(
+                  physics: const NeverScrollableScrollPhysics(),
+                  shrinkWrap: true,
+                  itemCount: 3,
+                  itemBuilder: (context, idx) {
+                    return Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 4),
+                      child: InkWell(
+                          onTap: () {
+                            BaseWidget.push(context, const DetailSAP());
+                          },
+                          child: const SAPView()),
+                    );
+                  }),
             ],
           ),
         ),
       ),
+    );
+  }
+
+  void show() {
+    showModalBottomSheet(
+      context: context,
+      builder: (BuildContext context) {
+        return FilterSAP(
+          location: location,
+          dropdownItem: dropdownItem,
+          listDropdown: const [
+            'All',
+            'Insurance',
+            'Environmental Health',
+            'Product Photography & Videography',
+            'People & Organization Transformation'
+          ],
+        );
+      },
     );
   }
 }

@@ -1,28 +1,21 @@
 import 'package:event/feature/profile/view/widgets/tag_view.dart';
 import 'package:event/utils/colors.dart';
-import 'package:event/utils/strings.dart';
-import 'package:event/widgets/base_widget.dart';
 import 'package:flutter/material.dart';
 
-class DetailSAP extends StatefulWidget {
-  const DetailSAP({Key? key}) : super(key: key);
+class SAPView extends StatelessWidget {
+  const SAPView({Key? key}) : super(key: key);
 
-  @override
-  State<DetailSAP> createState() => _DetailSAPState();
-}
-
-class _DetailSAPState extends State<DetailSAP> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: BaseWidget.appbar(
-          title: Strings.barDetailSAP,
-          onBack: () {
-            Navigator.of(context).pop();
-          },
-          withBackAction: true),
-      body: SingleChildScrollView(
-          child: Column(
+    return Container(
+      height: 240,
+      width: double.infinity,
+      decoration: BoxDecoration(
+        border: Border.all(color: Colors.black, width: 0.4),
+        borderRadius: BorderRadius.circular(12),
+        color: Colors.grey.withOpacity(0.1),
+      ),
+      child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -45,7 +38,7 @@ class _DetailSAPState extends State<DetailSAP> {
                     Text('Insurance',
                         style: TextStyle(
                             color: ColorsUtil.bgColor,
-                            fontSize: 18,
+                            fontSize: 16,
                             fontWeight: FontWeight.bold)),
                   ],
                 ),
@@ -53,39 +46,38 @@ class _DetailSAPState extends State<DetailSAP> {
             ],
           ),
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+            padding: const EdgeInsets.symmetric(horizontal: 12,vertical: 8),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const SizedBox(height: 12),
                 const Text('Charles Monat Associates Pte Ltd',
                     style: TextStyle(
                         color: ColorsUtil.bgColor,
-                        fontSize: 20,
+                        fontSize: 18,
                         fontWeight: FontWeight.bold)),
                 const Text('Location : Singapore',
                     style: TextStyle(
                         color: ColorsUtil.bgColor,
-                        fontSize: 15,
+                        fontSize: 13,
                         fontWeight: FontWeight.bold)),
-                const SizedBox(height: 28),
+                const SizedBox(height: 12),
                 Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
                     Container(
-                      height: 100,
-                      width: 100,
+                      height: 80,
+                      width: 80,
                       margin: const EdgeInsets.only(right: 8),
                       decoration: BoxDecoration(
                         border: Border.all(
                           color: Colors.grey[400]!,
                           width: 1,
                         ),
-                        borderRadius: BorderRadius.circular(100),
+                        borderRadius: BorderRadius.circular(80),
                       ),
                       child: Image.asset('images/assets/profile.png',
-                          height: 100, width: 100),
+                          height: 80, width: 80),
                     ),
                     const Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -97,51 +89,22 @@ class _DetailSAPState extends State<DetailSAP> {
                                 fontWeight: FontWeight.bold)),
                         Text('Executive Director, International',
                             style: TextStyle(
-                                color: ColorsUtil.bgColor, fontSize: 13)),
+                                color: ColorsUtil.bgColor,
+                                fontSize: 14)),
                         Text('Email : shiram.hedge@monat.com',
                             style: TextStyle(
-                                color: ColorsUtil.bgColor, fontSize: 13)),
-                        Text('Phone : +6592989847',
-                            style: TextStyle(
-                                color: ColorsUtil.bgColor, fontSize: 13)),
+                                color: ColorsUtil.bgColor,
+                                fontSize: 14)),
+
                       ],
                     ),
                   ],
                 ),
-                const SizedBox(height: 28),
-                const Text('Services',
-                    style: TextStyle(
-                        color: ColorsUtil.bgColor,
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold)),
-                const Text('1. Wealth Planning',
-                    style: TextStyle(color: ColorsUtil.bgColor, fontSize: 14)),
-                const Text('2. Estate Planning',
-                    style: TextStyle(color: ColorsUtil.bgColor, fontSize: 14)),
-                const Text('3. Multi Generation wealth transfer',
-                    style: TextStyle(color: ColorsUtil.bgColor, fontSize: 14)),
-                const Text('4. Family and Business protection solution',
-                    style: TextStyle(color: ColorsUtil.bgColor, fontSize: 14)),
-                const Text('5. Liquidity Planning and Asset Protection',
-                    style: TextStyle(color: ColorsUtil.bgColor, fontSize: 14)),
               ],
             ),
           )
         ],
-      )),
-    );
-  }
-
-  Widget rowItem(IconData icon, String detail) {
-    return Row(
-      children: [
-        Icon(icon, color: Colors.grey.withOpacity(0.7), size: 18),
-        const SizedBox(width: 8),
-        Text(
-          detail,
-          style: const TextStyle(fontSize: 12),
-        )
-      ],
+      ),
     );
   }
 }
