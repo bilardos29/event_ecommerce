@@ -63,11 +63,15 @@ class Strings {
   static const String barAnnounce = 'Announcements';
   static const String barDetailAnnounce = 'Detail Announcement';
 
+  //referral
+  static const String c = 'Referral';
+
   //mycard
   static const String barMyCard = 'Virtual Card';
 
   //referral
   static const String barReferral = 'Referral';
+  static const String buttonReferral = 'Submit';
 
   //menu
   static const String home = 'Home';

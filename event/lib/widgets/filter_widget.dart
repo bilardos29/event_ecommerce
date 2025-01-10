@@ -113,4 +113,3 @@ class FilterWidget extends StatelessWidget {
     );
   }
 }
-//<String>['EO Member', 'SLP', 'NextGen']

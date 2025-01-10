@@ -8,6 +8,7 @@ import 'package:event/feature/event/view/list_event.dart';
 import 'package:event/feature/event_calendar/view/list_calendar_event.dart';
 import 'package:event/feature/member_benefit/view/list_member_benefit.dart';
 import 'package:event/feature/mycard/view/mycard.dart';
+import 'package:event/feature/referral/view/referral.dart';
 import 'package:event/feature/sap/view/list_sap.dart';
 import 'package:event/feature/video_player/view/video_player_view.dart';
 import 'package:event/utils/strings.dart';
@@ -63,7 +64,9 @@ class _HomePageState extends State<HomePage> {
                       HomeMenu(
                         img: 'ic_referral.png',
                         menu: 'Referrals',
-                        onClick: () {},
+                        onClick: () {
+                          BaseWidget.push(context, const ReferralPage());
+                        },
                       ),
                     ],
                   ),

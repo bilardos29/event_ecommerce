@@ -1,3 +1,6 @@
+import 'package:event/feature/announcement/view/detail_announcement.dart';
+import 'package:event/feature/announcement/view/widget/announce_view.dart';
+import 'package:event/feature/announcement/view/widget/filter_view.dart';
 import 'package:event/utils/strings.dart';
 import 'package:event/widgets/base_widget.dart';
 import 'package:event/widgets/icons_button.dart';
@@ -13,7 +16,9 @@ class ListAnnouncement extends StatefulWidget {
 
 class _ListAnnouncementState extends State<ListAnnouncement> {
 
-  TextEditingController location = TextEditingController();
+  TextEditingController announce = TextEditingController();
+  TextEditingController startDate = TextEditingController();
+  TextEditingController endDate = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -38,21 +43,47 @@ class _ListAnnouncementState extends State<ListAnnouncement> {
                       width: MediaQuery.of(context).size.width - 80,
                       prefix: Icons.search,
                       hintText: 'Announement',
-                      textController: location,
+                      textController: announce,
                     ),
                     const SizedBox(width: 8),
                     IconsButton(
                       icon: 'ic_filter.png',
-                      onClick: () {},
+                      onClick: show,
                     ),
                   ],
                 ),
               ),
               const SizedBox(height: 20),
+              ListView.builder(
+                  physics: const NeverScrollableScrollPhysics(),
+                  shrinkWrap: true,
+                  itemCount: 3,
+                  itemBuilder: (context, idx) {
+                    return Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 6),
+                      child: InkWell(
+                          onTap: () {
+                            BaseWidget.push(context, const DetailAnnouncement());
+                          },
+                          child: const AnnounceView()),
+                    );
+                  }),
             ],
           ),
         ),
       ),
+    );
+  }
+
+  void show() {
+    showModalBottomSheet(
+      context: context,
+      builder: (BuildContext context) {
+        return FilterAnnouncement(
+          startDate: startDate,
+          endDate: endDate,
+        );
+      },
     );
   }
 }
