@@ -1,4 +1,5 @@
 import 'package:event/feature/auth/view/login.dart';
+import 'package:event/feature/dashboard/controller/dashboard_controller.dart';
 import 'package:event/feature/profile/controller/profile_controller.dart';
 import 'package:event/feature/profile/view/change_interest.dart';
 import 'package:event/feature/profile/view/change_password.dart';
@@ -20,6 +21,7 @@ class ProfilePage extends StatefulWidget {
 
 class _ProfilePageState extends State<ProfilePage> {
   late ProfileController controller = context.read<ProfileController>();
+  late DashboardController homeController = context.read<DashboardController>();
 
   @override
   Widget build(BuildContext context) {
@@ -29,6 +31,7 @@ class _ProfilePageState extends State<ProfilePage> {
           bottomEnum: BottomEnum.secondary,
           text: Strings.logout,
           onClick: () {
+            homeController.logout();
             BaseWidget.pushToTop(context, const Login());
           }),
       body: Column(
@@ -40,28 +43,28 @@ class _ProfilePageState extends State<ProfilePage> {
               const SizedBox(height: 20),
               const Center(child: UserProfileBig()),
               const SizedBox(height: 12),
-              const Center(
+              Center(
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Text(
-                      'Bilardo Situmorang',
-                      style: TextStyle(
+                      '${homeController.user!.firstname} ${homeController.user!.lastname}',
+                      style: const TextStyle(
                         fontWeight: FontWeight.w600,
                         fontSize: 24,
                       ),
                     ),
-                    SizedBox(height: 10),
+                    const SizedBox(height: 10),
                     Text(
-                      'bilardo.situmorang@gmail.com',
-                      style: TextStyle(
+                      '${homeController.user!.email}',
+                      style: const TextStyle(
                         fontSize: 13,
                       ),
                     ),
                     Text(
-                      '082130427985',
-                      style: TextStyle(
+                      '${homeController.user!.phone}',
+                      style: const TextStyle(
                         fontSize: 13,
                       ),
                     ),

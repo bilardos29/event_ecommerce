@@ -64,7 +64,7 @@ class _ChangePasswordState extends State<ChangePassword> {
                   : Icons.remove_red_eye,
               obscureText: !showRePass,
               hintText: Strings.newRePassword,
-              textController: newPass,
+              textController: newRePass,
             ),
           ],
         ),

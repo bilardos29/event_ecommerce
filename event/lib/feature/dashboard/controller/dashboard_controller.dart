@@ -22,6 +22,12 @@ class DashboardController extends ChangeNotifier implements DashboardInterface {
     notifyListeners();
   }
 
+  void logout(){
+    page = 0;
+    user = ProfileModel();
+    notifyListeners();
+  }
+
   @override
   void getBanner({ValueChanged<String>? onError, VoidCallback? onSuccess}) {
     // TODO: implement getBanner
@@ -45,9 +51,16 @@ class DashboardController extends ChangeNotifier implements DashboardInterface {
   }
 
   @override
-  void getProfile({ValueChanged<String>? onError, VoidCallback? onSuccess}) {
+  void getProfile(String email, {ValueChanged<String>? onError, VoidCallback? onSuccess}) {
     // TODO: implement getProfile
 
+    for(ProfileModel item in listProfile){
+      if(item.email == email){
+        user = item;
+      }
+    }
+
+    notifyListeners();
     onSuccess!();
   }
 }

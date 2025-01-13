@@ -1,9 +1,10 @@
 import 'package:event/feature/announcement/controller/announcement_controller.dart';
 import 'package:event/feature/auth/controller/auth_controller.dart';
+import 'package:event/feature/auth/controller/register_controller.dart';
 import 'package:event/feature/auth/view/login.dart';
 import 'package:event/feature/dashboard/controller/dashboard_controller.dart';
+import 'package:event/feature/event/controller/event_calendar_controller.dart';
 import 'package:event/feature/event/controller/event_controller.dart';
-import 'package:event/feature/event_calendar/controller/event_calendar_controller.dart';
 import 'package:event/feature/history/controller/history_controller.dart';
 import 'package:event/feature/member_benefit/controller/member_benefit_controller.dart';
 import 'package:event/feature/notification/controller/notification_controller.dart';
@@ -30,6 +31,9 @@ class MyApp extends StatelessWidget {
         ),
         ChangeNotifierProvider(
           create: (context) => AuthController(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => RegisterController(),
         ),
         ChangeNotifierProvider(
           create: (context) => NotificationController(),

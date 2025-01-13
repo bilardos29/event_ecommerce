@@ -1,6 +1,5 @@
 import 'package:event/feature/auth/controller/auth_controller.dart';
 import 'package:event/feature/auth/view/login.dart';
-import 'package:event/feature/auth/view/widgets/bg_card.dart';
 import 'package:event/feature/auth/view/widgets/header_label.dart';
 import 'package:event/utils/strings.dart';
 import 'package:event/widgets/base_widget.dart';
@@ -44,7 +43,6 @@ class _ForgotPasswordState extends State<ForgotPassword> {
       ),
       body: Stack(
         children: [
-          BackgroundCard(),
           SingleChildScrollView(
             child: Container(
               height: MediaQuery.of(context).size.height,

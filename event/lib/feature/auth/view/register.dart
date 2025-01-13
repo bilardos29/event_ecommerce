@@ -1,4 +1,6 @@
-import 'package:event/feature/auth/controller/auth_controller.dart';
+import 'package:event/feature/auth/controller/register_controller.dart';
+import 'package:event/feature/auth/model/user_category_model.dart';
+import 'package:event/feature/auth/view/login.dart';
 import 'package:event/utils/strings.dart';
 import 'package:event/widgets/base_widget.dart';
 import 'package:event/feature/auth/view/widgets/header_label.dart';
@@ -6,8 +8,6 @@ import 'package:event/widgets/main_button.dart';
 import 'package:event/widgets/rounded_text_field.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
-import 'widgets/bg_card.dart';
 
 class Register extends StatefulWidget {
   const Register({Key? key}) : super(key: key);
@@ -23,11 +23,10 @@ class _RegisterState extends State<Register> {
   TextEditingController firstname = TextEditingController();
   TextEditingController lastname = TextEditingController();
 
-  late AuthController controller = context.read<AuthController>();
+  late RegisterController controller = context.watch<RegisterController>();
 
   bool showPass = false;
   bool showRepass = false;
-  String memberCategory = 'EO Member';
 
   @override
   Widget build(BuildContext context) {
@@ -45,7 +44,7 @@ class _RegisterState extends State<Register> {
                     pass.text, repass.text, onError: (err) {
                   BaseWidget.showSnackBar(context, err);
                 }, onSuccess: () {
-                  // BaseWidget.pushToTop(context, const LoginPage());
+                  BaseWidget.pushToTop(context, const Login());
                 });
               },
             ),
@@ -54,7 +53,6 @@ class _RegisterState extends State<Register> {
       ),
       body: Stack(
         children: [
-          BackgroundCard(),
           SingleChildScrollView(
             child: Container(
               padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
@@ -158,20 +156,17 @@ class _RegisterState extends State<Register> {
                         DropdownButton<String>(
                           isExpanded: true,
                           underline: const SizedBox(),
-                          items: <String>['EO Member', 'SLP', 'NextGen']
-                              .map((String value) {
+                          items: listUserCat.map((UserCategoryModel item) {
                             return DropdownMenuItem<String>(
-                              value: value,
-                              child: Text(value,
+                              value: item.name,
+                              child: Text(item.name!,
                                   style: const TextStyle(fontSize: 12)),
                               onTap: () {
-                                setState(() {
-                                  memberCategory = value;
-                                });
+                                controller.updateUserCat(item);
                               },
                             );
                           }).toList(),
-                          value: memberCategory,
+                          value: controller.userCat.name,
                           onChanged: (_) {},
                         ),
                       ],

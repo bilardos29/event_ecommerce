@@ -1,9 +1,15 @@
+import 'package:event/feature/profile/model/profile_model.dart';
 import 'package:flutter/material.dart';
 
 class VirtualCard extends StatelessWidget {
-  const VirtualCard({Key? key, required this.onClick}) : super(key: key);
+  VirtualCard({
+    required this.user,
+    required this.onClick,
+    Key? key,
+  }) : super(key: key);
 
-  final VoidCallback onClick;
+  ProfileModel user;
+  VoidCallback onClick;
 
   @override
   Widget build(BuildContext context) {
@@ -38,7 +44,7 @@ class VirtualCard extends StatelessWidget {
               ],
             ),
             const SizedBox(height: 32),
-            const Row(
+            Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               crossAxisAlignment: CrossAxisAlignment.end,
               children: [
@@ -46,23 +52,23 @@ class VirtualCard extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      '007',
-                      style: TextStyle(
+                      user.userCardNumber!, //'007',
+                      style: const TextStyle(
                           color: Colors.white,
                           fontSize: 24,
                           fontFamily: 'Mono',
                           fontWeight: FontWeight.bold),
                     ),
-                    SizedBox(height: 2),
+                    const SizedBox(height: 2),
                     Text(
-                      'Michel Sanjaya',
-                      style: TextStyle(
+                      '${user.firstname} ${user.lastname}', //'Michel Sanjaya',
+                      style: const TextStyle(
                           color: Colors.white,
                           fontSize: 20,
                           fontWeight: FontWeight.bold),
                     ),
-                    SizedBox(height: 2),
-                    Text(
+                    const SizedBox(height: 2),
+                    const Text(
                       'Valid Until',
                       style: TextStyle(
                           color: Colors.white,
@@ -70,15 +76,15 @@ class VirtualCard extends StatelessWidget {
                           fontWeight: FontWeight.bold),
                     ),
                     Text(
-                      '07/25',
-                      style: TextStyle(
+                      '${user.validUntil}',
+                      style: const TextStyle(
                           color: Colors.white,
                           fontSize: 14,
                           fontWeight: FontWeight.bold),
                     ),
                   ],
                 ),
-                Icon(
+                const Icon(
                   Icons.qr_code_2_rounded,
                   color: Colors.white,
                   size: 48,

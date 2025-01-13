@@ -1,7 +1,7 @@
 import 'package:event/feature/auth/controller/auth_controller.dart';
 import 'package:event/feature/auth/view/forgot_password.dart';
 import 'package:event/feature/auth/view/register.dart';
-import 'package:event/feature/auth/view/widgets/bg_card.dart';
+import 'package:event/feature/dashboard/controller/dashboard_controller.dart';
 import 'package:event/feature/dashboard/view/dashboard.dart';
 import 'package:event/utils/strings.dart';
 import 'package:event/widgets/base_widget.dart';
@@ -21,6 +21,7 @@ class Login extends StatefulWidget {
 
 class _LoginState extends State<Login> {
   late AuthController controller = context.read<AuthController>();
+  late DashboardController homeController = context.read<DashboardController>();
   TextEditingController email = TextEditingController();
   TextEditingController pass = TextEditingController();
 
@@ -40,8 +41,10 @@ class _LoginState extends State<Login> {
               controller.login(email.text, pass.text, onError: (err) {
                 BaseWidget.showSnackBar(context, err);
               }, onSuccess: () {
+                homeController.getProfile(email.text, onSuccess: () {
+                  BaseWidget.pushToTop(context, const Dashboard());
+                });
                 // context.read<HomeController>().updateToken(val);
-                BaseWidget.pushToTop(context, const Dashboard());
               });
             },
           ),
@@ -67,7 +70,6 @@ class _LoginState extends State<Login> {
       ),
       body: Stack(
         children: [
-          BackgroundCard(),
           SingleChildScrollView(
             child: Container(
               height: MediaQuery.of(context).size.height,

@@ -11,7 +11,7 @@ abstract class DashboardInterface {
     VoidCallback? onSuccess,
   });
 
-  void getProfile({
+  void getProfile(String email, {
     ValueChanged<String>? onError,
     VoidCallback? onSuccess,
   });

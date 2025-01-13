@@ -20,10 +20,8 @@ class BackgroundCard extends StatelessWidget {
                 end: Alignment.bottomCenter,
                 stops: [0, 1],
                 colors: [
-                  // ColorsUtil.primaryBg,
-                  // ColorsUtil.secondaryBg,
-                  Colors.white,
-                  Colors.white,
+                  ColorsUtil.primaryBg,
+                  ColorsUtil.secondaryBg,
                 ],
               ),
               borderRadius: BorderRadius.only(

@@ -1,8 +1,10 @@
+import 'package:event/feature/dashboard/controller/dashboard_controller.dart';
 import 'package:event/utils/strings.dart';
 import 'package:event/widgets/base_widget.dart';
 import 'package:event/widgets/bottom_button.dart';
 import 'package:event/widgets/rounded_text_field.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class DetailProfile extends StatefulWidget {
   const DetailProfile({Key? key}) : super(key: key);
@@ -16,6 +18,19 @@ class _DetailProfileState extends State<DetailProfile> {
   TextEditingController lastName = TextEditingController();
   TextEditingController phone = TextEditingController();
   TextEditingController address = TextEditingController();
+
+  late DashboardController homeController = context.read<DashboardController>();
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+
+    firstName.text = homeController.user!.firstname!;
+    lastName.text = homeController.user!.lastname!;
+    phone.text = homeController.user!.phone!;
+    address.text = homeController.user!.address!;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -58,15 +73,15 @@ class _DetailProfileState extends State<DetailProfile> {
               const Text('Phone Number'),
               const SizedBox(height: 10),
               RoundedTextField(
-                textController: lastName,
-                prefix: Icons.person,
+                textController: phone,
+                prefix: Icons.phone,
                 disabled: true, //controller.mainText != Strings.simpan,
               ),
               const SizedBox(height: 20),
               const Text('Address'),
               const SizedBox(height: 10),
               RoundedTextField(
-                textController: lastName,
+                textController: address,
                 prefix: Icons.add_road,
                 disabled: true, //controller.mainText != Strings.simpan,
               ),
