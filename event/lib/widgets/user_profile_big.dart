@@ -12,13 +12,13 @@ class UserProfileBig extends StatelessWidget {
           width: 120,
           decoration: BoxDecoration(
             border: Border.all(
-              color: Colors.grey[200]!,
+              color: Colors.grey[400]!,
               width: 1,
             ),
             borderRadius: BorderRadius.circular(120),
           ),
           child:
-              Image.asset('images/assets/profile.png', height: 100, width: 100),
+              Image.asset('images/assets/ic_user.png', height: 100, width: 100),
         ),
         Positioned(
             bottom: 0,

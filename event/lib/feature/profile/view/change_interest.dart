@@ -1,3 +1,4 @@
+import 'package:event/feature/event/model/myeo_subgroup_model.dart';
 import 'package:event/utils/strings.dart';
 import 'package:event/widgets/base_widget.dart';
 import 'package:event/widgets/bottom_button.dart';
@@ -22,6 +23,11 @@ class _ChangeInterestState extends State<ChangeInterest> {
 
   @override
   Widget build(BuildContext context) {
+
+    var size = MediaQuery.of(context).size;
+    double itemHeight = 32;
+    final double itemWidth = size.width / 2;
+
     return Scaffold(
       appBar: BaseWidget.appbar(
           title: Strings.barChangeInterest,
@@ -38,100 +44,86 @@ class _ChangeInterestState extends State<ChangeInterest> {
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
         child: Column(
           children: [
-            Container(
-              width: double.infinity,
-              padding: const EdgeInsets.symmetric(
-                  horizontal: 16, vertical: 14),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(8),
-                color: Colors.white,
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.grey.withOpacity(0.5),
-                    spreadRadius: 1,
-                    blurRadius: 10,
-                    offset: const Offset(0, 3),
-                  ),
-                ],
-              ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const Text('Interest',
-                      style: TextStyle(
-                          fontSize: 15,
-                          color: Colors.black87,
-                          fontWeight: FontWeight.w600)),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          CheckBoxWidget(
-                              text: 'Golf',
-                              val: golf,
-                              onChange: (val) {
-                                setState(() {
-                                  golf = !golf;
-                                });
-                              }),
-                          CheckBoxWidget(
-                              text: 'Basket',
-                              val: basket,
-                              onChange: (val) {
-                                setState(() {
-                                  basket = !basket;
-                                });
-                              }),
-                        ],
-                      ),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          CheckBoxWidget(
-                              text: 'Soccer',
-                              val: soccer,
-                              onChange: (val) {
-                                setState(() {
-                                  soccer = !soccer;
-                                });
-                              }),
-                          CheckBoxWidget(
-                              text: 'Tennis',
-                              val: tennis,
-                              onChange: (val) {
-                                setState(() {
-                                  tennis = !tennis;
-                                });
-                              }),
-                        ],
-                      ),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          CheckBoxWidget(
-                              text: 'Badminton',
-                              val: badminton,
-                              onChange: (val) {
-                                setState(() {
-                                  badminton = !badminton;
-                                });
-                              }),
-                          CheckBoxWidget(
-                              text: 'Volley',
-                              val: volley,
-                              onChange: (val) {
-                                setState(() {
-                                  volley = !volley;
-                                });
-                              }),
-                        ],
-                      ),
-                    ],
-                  ),
-                ],
-              ),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const Text('Sport/Interest',
+                    style: TextStyle(
+                        fontSize: 16,
+                        color: Colors.black87,
+                        fontWeight: FontWeight.w600)),
+                const SizedBox(height: 6),
+                GridView.builder(
+                    shrinkWrap: true,
+                    physics: const NeverScrollableScrollPhysics(),
+                    itemCount: 7,
+                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 2,
+                      childAspectRatio: (itemWidth / itemHeight),
+                    ),
+                    itemBuilder: (ctx, idx) {
+                      return CheckBoxWidget(
+                          text: listMyEOSubGroup[idx].name!,
+                          val: listMyEOSubGroup[idx].checked!,
+                          onChange: (val) {
+                            setState(() {
+                              listMyEOSubGroup[idx].checked = !listMyEOSubGroup[idx].checked!;
+                            });
+                          });
+                    }),
+                const SizedBox(height: 12),
+                const Text('Social/Community',
+                    style: TextStyle(
+                        fontSize: 16,
+                        color: Colors.black87,
+                        fontWeight: FontWeight.w600)),
+                const SizedBox(height: 6),
+                GridView.builder(
+                    shrinkWrap: true,
+                    physics: const NeverScrollableScrollPhysics(),
+                    itemCount: 6,
+                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 2,
+                      childAspectRatio: (itemWidth / itemHeight),
+                    ),
+                    itemBuilder: (ctx, idx) {
+                      int index = idx + 7;
+                      return CheckBoxWidget(
+                          text: listMyEOSubGroup[index].name!,
+                          val: listMyEOSubGroup[index].checked!,
+                          onChange: (val) {
+                            setState(() {
+                              listMyEOSubGroup[index].checked = !listMyEOSubGroup[index].checked!;
+                            });
+                          });
+                    }),
+                const SizedBox(height: 12),
+                const Text('Industry/Current Issues',
+                    style: TextStyle(
+                        fontSize: 16,
+                        color: Colors.black87,
+                        fontWeight: FontWeight.w600)),
+                const SizedBox(height: 6),
+                GridView.builder(
+                    shrinkWrap: true,
+                    physics: const NeverScrollableScrollPhysics(),
+                    itemCount: 5,
+                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 2,
+                      childAspectRatio: (itemWidth / itemHeight),
+                    ),
+                    itemBuilder: (ctx, idx) {
+                      int index = idx + 13;
+                      return CheckBoxWidget(
+                          text: listMyEOSubGroup[index].name!,
+                          val: listMyEOSubGroup[index].checked!,
+                          onChange: (val) {
+                            setState(() {
+                              listMyEOSubGroup[index].checked = !listMyEOSubGroup[index].checked!;
+                            });
+                          });
+                    }),
+              ],
             ),
             const SizedBox(height: 20),
           ],

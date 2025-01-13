@@ -18,7 +18,7 @@ class MyEOGroupModel {
   }
 }
 
-List<MyEOGroupModel> get listInterestGroup => [
+List<MyEOGroupModel> get listMyEOGroup => [
   MyEOGroupModel(id: 0, name: 'Sport/Interest'),
   MyEOGroupModel(id: 1, name: 'Social/Community'),
   MyEOGroupModel(id: 2, name: 'Industry/Current Issues'),
