@@ -1,11 +1,14 @@
 import 'package:event/feature/profile/view/widgets/tag_view.dart';
+import 'package:event/feature/sap/model/sap_model.dart';
 import 'package:event/utils/colors.dart';
 import 'package:event/utils/strings.dart';
 import 'package:event/widgets/base_widget.dart';
 import 'package:flutter/material.dart';
 
 class DetailSAP extends StatefulWidget {
-  const DetailSAP({Key? key}) : super(key: key);
+  DetailSAP({required this.item, Key? key}) : super(key: key);
+
+  SAPModel item;
 
   @override
   State<DetailSAP> createState() => _DetailSAPState();
@@ -26,28 +29,32 @@ class _DetailSAPState extends State<DetailSAP> {
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Row(
+          Row(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              TagView(),
-              Padding(
-                padding: EdgeInsets.only(top: 2, left: 8),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      'Category :',
-                      style: TextStyle(
-                          color: ColorsUtil.bgColor,
-                          fontSize: 14,
-                          fontWeight: FontWeight.w400),
-                    ),
-                    Text('Insurance',
+              const TagView(),
+              Expanded(
+                child: Padding(
+                  padding: const EdgeInsets.only(top: 12, left: 8),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const Text(
+                        'Category :',
                         style: TextStyle(
                             color: ColorsUtil.bgColor,
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold)),
-                  ],
+                            fontSize: 13,
+                            fontWeight: FontWeight.w400),
+                      ),
+                      Text('${widget.item.category}',
+                          overflow: TextOverflow.fade,
+                          maxLines: 2,
+                          style: const TextStyle(
+                              color: ColorsUtil.bgColor,
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold)),
+                    ],
+                  ),
                 ),
               )
             ],
@@ -59,13 +66,13 @@ class _DetailSAPState extends State<DetailSAP> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const SizedBox(height: 12),
-                const Text('Charles Monat Associates Pte Ltd',
-                    style: TextStyle(
+                Text('${widget.item.company}',
+                    style: const TextStyle(
                         color: ColorsUtil.bgColor,
                         fontSize: 20,
                         fontWeight: FontWeight.bold)),
-                const Text('Location : Singapore',
-                    style: TextStyle(
+                Text('Location : ${widget.item.location}',
+                    style: const TextStyle(
                         color: ColorsUtil.bgColor,
                         fontSize: 15,
                         fontWeight: FontWeight.bold)),
@@ -87,22 +94,22 @@ class _DetailSAPState extends State<DetailSAP> {
                       child: Image.asset('images/assets/profile.png',
                           height: 100, width: 100),
                     ),
-                    const Column(
+                    Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text('Shriram Hedge',
-                            style: TextStyle(
+                        Text('${widget.item.picName}',
+                            style: const TextStyle(
                                 color: ColorsUtil.bgColor,
                                 fontSize: 18,
                                 fontWeight: FontWeight.bold)),
-                        Text('Executive Director, International',
-                            style: TextStyle(
+                        Text('${widget.item.picPosition}',
+                            style: const TextStyle(
                                 color: ColorsUtil.bgColor, fontSize: 13)),
-                        Text('Email : shiram.hedge@monat.com',
-                            style: TextStyle(
+                        Text('Email : ${widget.item.email}',
+                            style: const TextStyle(
                                 color: ColorsUtil.bgColor, fontSize: 13)),
-                        Text('Phone : +6592989847',
-                            style: TextStyle(
+                        Text('Phone : ${widget.item.phone}',
+                            style: const TextStyle(
                                 color: ColorsUtil.bgColor, fontSize: 13)),
                       ],
                     ),
@@ -114,16 +121,16 @@ class _DetailSAPState extends State<DetailSAP> {
                         color: ColorsUtil.bgColor,
                         fontSize: 18,
                         fontWeight: FontWeight.bold)),
-                const Text('1. Wealth Planning',
-                    style: TextStyle(color: ColorsUtil.bgColor, fontSize: 14)),
-                const Text('2. Estate Planning',
-                    style: TextStyle(color: ColorsUtil.bgColor, fontSize: 14)),
-                const Text('3. Multi Generation wealth transfer',
-                    style: TextStyle(color: ColorsUtil.bgColor, fontSize: 14)),
-                const Text('4. Family and Business protection solution',
-                    style: TextStyle(color: ColorsUtil.bgColor, fontSize: 14)),
-                const Text('5. Liquidity Planning and Asset Protection',
-                    style: TextStyle(color: ColorsUtil.bgColor, fontSize: 14)),
+                Text('${widget.item.services}',
+                    style: const TextStyle(color: ColorsUtil.bgColor, fontSize: 14)),
+                // const Text('2. Estate Planning',
+                //     style: TextStyle(color: ColorsUtil.bgColor, fontSize: 14)),
+                // const Text('3. Multi Generation wealth transfer',
+                //     style: TextStyle(color: ColorsUtil.bgColor, fontSize: 14)),
+                // const Text('4. Family and Business protection solution',
+                //     style: TextStyle(color: ColorsUtil.bgColor, fontSize: 14)),
+                // const Text('5. Liquidity Planning and Asset Protection',
+                //     style: TextStyle(color: ColorsUtil.bgColor, fontSize: 14)),
               ],
             ),
           )

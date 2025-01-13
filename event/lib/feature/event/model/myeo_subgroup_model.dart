@@ -26,7 +26,7 @@ class MyEOSubGroupModel {
   }
 }
 
-List<MyEOSubGroupModel> get listMyEOSubGroup => [
+List<MyEOSubGroupModel> listMyEOSubGroup = [
       MyEOSubGroupModel(groupId: 0, id: 0, name: 'MyEO Golf'),
       MyEOSubGroupModel(groupId: 0, id: 1, name: 'MyEO Badminton'),
       MyEOSubGroupModel(groupId: 0, id: 2, name: 'MyEO Driving'),

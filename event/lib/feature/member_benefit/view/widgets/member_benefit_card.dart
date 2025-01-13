@@ -1,9 +1,11 @@
+import 'package:event/feature/member_benefit/model/member_benefit_model.dart';
 import 'package:flutter/material.dart';
 
 class MemberBenefitCard extends StatelessWidget {
-  const MemberBenefitCard({required this.onClick, Key? key,}) : super(key: key);
+  MemberBenefitCard({required this.item, required this.onClick, Key? key,}) : super(key: key);
 
-  final VoidCallback onClick;
+  MemberBenefitModel item;
+  VoidCallback onClick;
 
   @override
   Widget build(BuildContext context) {
@@ -27,35 +29,35 @@ class MemberBenefitCard extends StatelessWidget {
           children: [
             Container(
               height: 100,
-              decoration: const BoxDecoration(
-                borderRadius: BorderRadius.only(
+              decoration: BoxDecoration(
+                borderRadius: const BorderRadius.only(
                   topLeft: Radius.circular(12),
                   topRight: Radius.circular(12),
                 ),
                 image: DecorationImage(
-                    image: AssetImage('images/sample/sample_2.jpg'),
-                    fit: BoxFit.fitHeight),
+                    image: AssetImage('images/sample/${item.banner}'),
+                    fit: BoxFit.cover),
               ),
             ),
-            const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 12),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 12),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  SizedBox(height: 10),
+                  const SizedBox(height: 10),
                   Text(
-                    'Konser Dokter Tompi Jazz',
+                    '${item.title}',
                     overflow: TextOverflow.ellipsis,
                     maxLines: 2,
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  SizedBox(height: 4),
+                  const SizedBox(height: 4),
                   Text(
-                    'Bood and Beverage',
-                    style: TextStyle(fontSize: 10),
+                    '${item.category}',
+                    style: const TextStyle(fontSize: 10),
                   ),
                 ],
               ),

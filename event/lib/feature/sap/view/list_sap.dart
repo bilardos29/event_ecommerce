@@ -1,3 +1,4 @@
+import 'package:event/feature/sap/model/sap_model.dart';
 import 'package:event/feature/sap/view/detail_sap.dart';
 import 'package:event/feature/sap/view/view/filter_sap.dart';
 import 'package:event/feature/sap/view/view/sap_view.dart';
@@ -57,15 +58,16 @@ class _ListSAPState extends State<ListSAP> {
               ListView.builder(
                   physics: const NeverScrollableScrollPhysics(),
                   shrinkWrap: true,
-                  itemCount: 3,
+                  itemCount: listSAP.length,
                   itemBuilder: (context, idx) {
                     return Padding(
                       padding: const EdgeInsets.symmetric(vertical: 4),
                       child: InkWell(
                           onTap: () {
-                            BaseWidget.push(context, const DetailSAP());
+                            BaseWidget.push(
+                                context, DetailSAP(item: listSAP[idx]));
                           },
-                          child: const SAPView()),
+                          child: SAPView(item: listSAP[idx])),
                     );
                   }),
             ],

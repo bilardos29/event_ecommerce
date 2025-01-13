@@ -38,6 +38,7 @@ class _ReferralPageState extends State<ReferralPage> {
             MainButton(
               text: Strings.buttonReferral,
               onClick: () {
+                Navigator.of(context).pop();
               },
             ),
           ],

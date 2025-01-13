@@ -1,3 +1,4 @@
+import 'package:event/feature/member_benefit/model/member_benefit_model.dart';
 import 'package:event/feature/member_benefit/view/detail_member_benefit.dart';
 import 'package:event/feature/member_benefit/view/widgets/member_benefit_card.dart';
 import 'package:event/utils/strings.dart';
@@ -12,7 +13,6 @@ class ListMemberBenefit extends StatefulWidget {
 }
 
 class _ListMemberBenefitState extends State<ListMemberBenefit> {
-
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
@@ -36,7 +36,7 @@ class _ListMemberBenefitState extends State<ListMemberBenefit> {
               GridView.builder(
                   shrinkWrap: true,
                   physics: const NeverScrollableScrollPhysics(),
-                  itemCount: 8,
+                  itemCount: listMemberBenefit.length,
                   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                     mainAxisSpacing: 16,
                     crossAxisSpacing: 16,
@@ -45,8 +45,10 @@ class _ListMemberBenefitState extends State<ListMemberBenefit> {
                   ),
                   itemBuilder: (ctx, idx) {
                     return MemberBenefitCard(
+                      item: listMemberBenefit[idx],
                       onClick: () {
-                        BaseWidget.push(ctx, const DetailMemberBenefit());
+                        BaseWidget.push(ctx,
+                            DetailMemberBenefit(item: listMemberBenefit[idx]));
                       },
                     );
                   })

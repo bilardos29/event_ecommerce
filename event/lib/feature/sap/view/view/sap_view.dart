@@ -1,9 +1,14 @@
 import 'package:event/feature/profile/view/widgets/tag_view.dart';
+import 'package:event/feature/sap/model/sap_model.dart';
 import 'package:event/utils/colors.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 class SAPView extends StatelessWidget {
-  const SAPView({Key? key}) : super(key: key);
+  SAPView({required this.item, Key? key}) : super(key: key);
+
+  SAPModel item;
 
   @override
   Widget build(BuildContext context) {
@@ -19,45 +24,49 @@ class SAPView extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Row(
+          Row(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              TagView(),
-              Padding(
-                padding: EdgeInsets.only(top: 2, left: 8),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      'Category :',
-                      style: TextStyle(
-                          color: ColorsUtil.bgColor,
-                          fontSize: 14,
-                          fontWeight: FontWeight.w400),
-                    ),
-                    Text('Insurance',
+              const TagView(),
+              Expanded(
+                child: Padding(
+                  padding: const EdgeInsets.only(top: 12, left: 8),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const Text(
+                        'Category :',
                         style: TextStyle(
                             color: ColorsUtil.bgColor,
-                            fontSize: 16,
-                            fontWeight: FontWeight.bold)),
-                  ],
+                            fontSize: 13,
+                            fontWeight: FontWeight.w400),
+                      ),
+                      Text('${item.category}',
+                          overflow: TextOverflow.ellipsis,
+                          maxLines: 2,
+                          style: const TextStyle(
+                              color: ColorsUtil.bgColor,
+                              fontSize: 15,
+                              fontWeight: FontWeight.bold)),
+                    ],
+                  ),
                 ),
               )
             ],
           ),
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 12,vertical: 8),
+            padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Text('Charles Monat Associates Pte Ltd',
-                    style: TextStyle(
+                Text('${item.company}',
+                    style: const TextStyle(
                         color: ColorsUtil.bgColor,
                         fontSize: 18,
                         fontWeight: FontWeight.bold)),
-                const Text('Location : Singapore',
-                    style: TextStyle(
+                Text('Location : ${item.location}',
+                    style: const TextStyle(
                         color: ColorsUtil.bgColor,
                         fontSize: 13,
                         fontWeight: FontWeight.bold)),
@@ -79,23 +88,20 @@ class SAPView extends StatelessWidget {
                       child: Image.asset('images/assets/profile.png',
                           height: 80, width: 80),
                     ),
-                    const Column(
+                    Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text('Shriram Hedge',
-                            style: TextStyle(
+                        Text('${item.picName}',
+                            style: const TextStyle(
                                 color: ColorsUtil.bgColor,
                                 fontSize: 18,
                                 fontWeight: FontWeight.bold)),
-                        Text('Executive Director, International',
-                            style: TextStyle(
-                                color: ColorsUtil.bgColor,
-                                fontSize: 14)),
-                        Text('Email : shiram.hedge@monat.com',
-                            style: TextStyle(
-                                color: ColorsUtil.bgColor,
-                                fontSize: 14)),
-
+                        Text('${item.picPosition}',
+                            style: const TextStyle(
+                                color: ColorsUtil.bgColor, fontSize: 14)),
+                        Text('Email : ${item.email}',
+                            style: const TextStyle(
+                                color: ColorsUtil.bgColor, fontSize: 14)),
                       ],
                     ),
                   ],
