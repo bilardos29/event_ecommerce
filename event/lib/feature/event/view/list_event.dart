@@ -1,3 +1,5 @@
+import 'package:event/feature/event/model/event_category_model.dart';
+import 'package:event/feature/event/model/event_model.dart';
 import 'package:event/feature/event/view/detail_event.dart';
 import 'package:event/feature/event/view/widgets/event_card.dart';
 import 'package:event/widgets/filter_widget.dart';
@@ -20,7 +22,7 @@ class _ListEventState extends State<ListEvent> {
   TextEditingController startDate = TextEditingController();
   TextEditingController endDate = TextEditingController();
 
-  String eventCat = 'EO Member';
+  String eventCat = 'All';
 
   @override
   Widget build(BuildContext context) {
@@ -61,7 +63,7 @@ class _ListEventState extends State<ListEvent> {
               GridView.builder(
                   shrinkWrap: true,
                   physics: const NeverScrollableScrollPhysics(),
-                  itemCount: 8,
+                  itemCount: listEvent.length,
                   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                     mainAxisSpacing: 16,
                     crossAxisSpacing: 16,
@@ -70,8 +72,9 @@ class _ListEventState extends State<ListEvent> {
                   ),
                   itemBuilder: (ctx, idx) {
                     return EventCard(
+                      item: listEvent[idx],
                       onClick: () {
-                        BaseWidget.push(ctx, const DetailEvent());
+                        BaseWidget.push(ctx, DetailEvent(item: listEvent[idx]));
                       },
                     );
                   })
@@ -87,7 +90,7 @@ class _ListEventState extends State<ListEvent> {
       context: context,
       builder: (BuildContext context) {
         return FilterWidget(
-          listDropdown: ['EO Member', 'SLP', 'NextGen'],
+          listDropdown: listEventCategory,
           location: location,
           startDate: startDate,
           endDate: endDate,

@@ -1,3 +1,4 @@
+import 'package:event/feature/event/model/event_model.dart';
 import 'package:event/feature/event/view/detail_event.dart';
 import 'package:event/feature/event/view/widgets/event_card.dart';
 import 'package:event/widgets/calendar_plus.dart';
@@ -70,7 +71,7 @@ class _ListCalendarEventState extends State<ListCalendarEvent> {
               GridView.builder(
                   shrinkWrap: true,
                   physics: const NeverScrollableScrollPhysics(),
-                  itemCount: 8,
+                  itemCount: listEvent.length,
                   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                     mainAxisSpacing: 16,
                     crossAxisSpacing: 16,
@@ -79,8 +80,9 @@ class _ListCalendarEventState extends State<ListCalendarEvent> {
                   ),
                   itemBuilder: (ctx, idx) {
                     return EventCard(
+                      item: listEvent[idx],
                       onClick: () {
-                        BaseWidget.push(ctx, const DetailEvent());
+                        BaseWidget.push(ctx, DetailEvent(item: listEvent[idx],));
                       },
                     );
                   })

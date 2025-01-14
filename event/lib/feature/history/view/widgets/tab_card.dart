@@ -4,6 +4,7 @@ enum TabEnum { ongoing, canceled, onreview, completed }
 
 class TabCard extends StatelessWidget {
   const TabCard({
+    required this.bookingId,
     required this.title,
     required this.location,
     required this.datetime,
@@ -11,6 +12,7 @@ class TabCard extends StatelessWidget {
     Key? key,
   }) : super(key: key);
 
+  final String bookingId;
   final String title;
   final String location;
   final String datetime;
@@ -38,7 +40,7 @@ class TabCard extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          newText('Booking ID: 112211223300'),
+          newText('Booking ID: $bookingId'),
           const SizedBox(height: 2),
           newText(title, isHeader: true),
           const SizedBox(height: 10),
@@ -52,7 +54,7 @@ class TabCard extends StatelessWidget {
                 color: Colors.grey.withOpacity(0.8),
               ),
               const SizedBox(width: 2),
-              newText('$location | 23 Februari 2024'),
+              newText('$location | $datetime'),
             ],
           ),
           const SizedBox(height: 10),

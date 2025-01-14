@@ -1,10 +1,13 @@
+import 'package:event/feature/event/model/event_model.dart';
 import 'package:event/utils/strings.dart';
 import 'package:event/widgets/base_widget.dart';
 import 'package:event/widgets/main_button.dart';
 import 'package:flutter/material.dart';
 
 class DetailEvent extends StatefulWidget {
-  const DetailEvent({Key? key}) : super(key: key);
+  DetailEvent({required this.item, Key? key}) : super(key: key);
+
+  EventModel item;
 
   @override
   State<DetailEvent> createState() => _DetailEventState();
@@ -25,24 +28,29 @@ class _DetailEventState extends State<DetailEvent> {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Image.asset('images/sample/sample_1.jpg'),
+            Image.asset(
+              'images/sample/${widget.item.banner}',
+              height: 280,
+              width: double.infinity,
+              fit: BoxFit.cover,
+            ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Text(
-                    'Konser Dokter Tompi Musik Jazz',
-                    style: TextStyle(
+                  Text(
+                    '${widget.item.title}',
+                    style: const TextStyle(
                       fontSize: 24,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
                   const SizedBox(height: 12),
-                  rowItem(Icons.place, 'Jakarta'),
+                  rowItem(Icons.place, '${widget.item.location}'),
                   const SizedBox(height: 4),
-                  rowItem(Icons.calendar_month, '20 Februari 2025'),
+                  rowItem(Icons.calendar_month, '${widget.item.dateStart}'),
                   const SizedBox(height: 4),
                   rowItem(Icons.app_registration, 'Quota : 100'),
                   const SizedBox(height: 20),

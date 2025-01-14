@@ -1,14 +1,15 @@
-import 'package:flutter/cupertino.dart';
+import 'package:event/feature/event/model/event_model.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 class EventCard extends StatelessWidget {
-  const EventCard({
+  EventCard({
+    required this.item,
     required this.onClick,
     Key? key,
   }) : super(key: key);
 
-  final VoidCallback onClick;
+  EventModel item;
+  VoidCallback onClick;
 
   @override
   Widget build(BuildContext context) {
@@ -34,14 +35,14 @@ class EventCard extends StatelessWidget {
               children: [
                 Container(
                   height: 100,
-                  decoration: const BoxDecoration(
-                    borderRadius: BorderRadius.only(
+                  decoration: BoxDecoration(
+                    borderRadius: const BorderRadius.only(
                       topLeft: Radius.circular(12),
                       topRight: Radius.circular(12),
                     ),
                     image: DecorationImage(
-                        image: AssetImage('images/sample/sample_1.jpg'),
-                        fit: BoxFit.fitHeight),
+                        image: AssetImage('images/sample/${item.banner}'),
+                        fit: BoxFit.cover),
                   ),
                 ),
                 Padding(
@@ -50,11 +51,11 @@ class EventCard extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       const SizedBox(height: 10),
-                      const Text(
-                        'Konser Dokter Tompi Jazz',
+                      Text(
+                        '${item.title}',
                         overflow: TextOverflow.ellipsis,
                         maxLines: 2,
-                        style: TextStyle(
+                        style: const TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.bold,
                         ),
@@ -67,8 +68,8 @@ class EventCard extends StatelessWidget {
                             size: 12,
                             color: Colors.grey.withOpacity(0.4),
                           ),
-                          const Text(
-                            'Jakarta, 20 Februari 2025',
+                          Text(
+                            '${item.location}, ${item.dateStart}',
                             style: TextStyle(fontSize: 10),
                           ),
                         ],

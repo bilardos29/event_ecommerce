@@ -119,7 +119,7 @@ class _MyVirtualCardState extends State<MyVirtualCard> {
                   Icon(
                     Icons.qr_code_2_rounded,
                     color: Colors.white,
-                    size: 48,
+                    size: 72,
                   )
                 ],
               ),

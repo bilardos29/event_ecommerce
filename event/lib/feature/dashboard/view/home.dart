@@ -27,13 +27,15 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+    // print(MediaQuery.of(context).size.width);
+    print(MediaQuery.of(context).size.height);
     return Scaffold(
         body: Stack(
       children: [
         Column(
           children: [
             const SizedBox(height: 72),
-            VirtualCard(
+            controller.user!.email == null ? SizedBox() : VirtualCard(
                 user: controller.user!,
                 onClick: () {
                   BaseWidget.push(context, const MyVirtualCard());

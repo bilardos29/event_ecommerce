@@ -3,8 +3,8 @@ import 'package:event/widgets/main_button.dart';
 import 'package:event/widgets/rounded_text_field.dart';
 import 'package:flutter/material.dart';
 
-class FilterSAP extends StatelessWidget {
-  FilterSAP(
+class FilterPartner extends StatelessWidget {
+  FilterPartner(
       {required this.location,
       required this.listDropdown,
       required this.dropdownItem,
@@ -52,7 +52,7 @@ class FilterSAP extends StatelessWidget {
             child: DropdownButton<String>(
               isExpanded: true,
               underline: const SizedBox(),
-              hint: const Text('SAP Category',
+              hint: const Text('Member Benefit Category',
                   style: TextStyle(
                       fontSize: 15,
                       color: Colors.black87,

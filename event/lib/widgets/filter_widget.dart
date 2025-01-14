@@ -1,3 +1,4 @@
+import 'package:event/feature/event/model/event_category_model.dart';
 import 'package:event/widgets/base_widget.dart';
 import 'package:event/widgets/main_button.dart';
 import 'package:event/widgets/rounded_text_field.dart';
@@ -16,7 +17,7 @@ class FilterWidget extends StatelessWidget {
   TextEditingController location;
   TextEditingController startDate;
   TextEditingController endDate;
-  List<String> listDropdown;
+  List<EventCategoryModel> listDropdown;
   String dropdownItem;
 
   @override
@@ -88,12 +89,12 @@ class FilterWidget extends StatelessWidget {
                       fontSize: 15,
                       color: Colors.black87,
                       fontWeight: FontWeight.w400)),
-              items: listDropdown.map((String value) {
+              items: listDropdown.map((EventCategoryModel item) {
                 return DropdownMenuItem<String>(
-                  value: value,
-                  child: Text(value, style: const TextStyle(fontSize: 12)),
+                  value: item.name,
+                  child: Text(item.name!, style: const TextStyle(fontSize: 12)),
                   onTap: () {
-                    dropdownItem = value;
+                    dropdownItem = item.name!;
                   },
                 );
               }).toList(),

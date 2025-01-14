@@ -20,15 +20,13 @@ class _VideoPlayerViewState extends State<VideoPlayerView> {
       DeviceOrientation.landscapeRight,
       DeviceOrientation.landscapeLeft,
     ]);
-    _controller = VideoPlayerController.networkUrl(Uri.parse(
-        //'https://drive.google.com/file/d/1lkjT5SPix0i2sJqs__4k05EbGm7a6CU4/view?usp=sharing'))
-        'https://flutter.github.io/assets-for-api-docs/assets/videos/bee.mp4'))
-        ..initialize().then((_) {
-      // Ensure the first frame is shown after the video is initialized, even before the play button has been pressed.
-      setState(() {});
-      _controller.play();
-    });
 
+    _controller = VideoPlayerController.networkUrl(Uri.parse(
+        'https://drive.google.com/uc?export=download&id=1lkjT5SPix0i2sJqs__4k05EbGm7a6CU4'))
+      ..initialize().then((_) {
+        setState(() {});
+        _controller.play();
+      });
   }
 
   @override
@@ -43,9 +41,7 @@ class _VideoPlayerViewState extends State<VideoPlayerView> {
       body: SingleChildScrollView(
         child: Column(
           children: <Widget>[
-            Container(
-              padding: const EdgeInsets.only(top: 20.0),
-            ),
+            const SizedBox(height: 20),
             Container(
               padding: const EdgeInsets.all(20),
               child: AspectRatio(
@@ -54,12 +50,12 @@ class _VideoPlayerViewState extends State<VideoPlayerView> {
                   alignment: Alignment.bottomCenter,
                   children: <Widget>[
                     VideoPlayer(_controller),
-                    // _ControlsOverlay(controller: _controller),
                     VideoProgressIndicator(_controller, allowScrubbing: true),
                   ],
                 ),
               ),
             ),
+            const SizedBox(height: 20),
           ],
         ),
       ),
@@ -78,3 +74,4 @@ class _VideoPlayerViewState extends State<VideoPlayerView> {
     super.dispose();
   }
 }
+

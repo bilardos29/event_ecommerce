@@ -57,7 +57,7 @@ class _ListAnnouncementState extends State<ListAnnouncement> {
               ListView.builder(
                   physics: const NeverScrollableScrollPhysics(),
                   shrinkWrap: true,
-                  itemCount: 3,
+                  itemCount: 1,
                   itemBuilder: (context, idx) {
                     return Padding(
                       padding: const EdgeInsets.symmetric(vertical: 6),

@@ -1,7 +1,6 @@
 import 'package:event/feature/history/view/widgets/history_view.dart';
 import 'package:event/utils/colors.dart';
 import 'package:event/utils/strings.dart';
-import 'package:event/widgets/base_widget.dart';
 import 'package:flutter/material.dart';
 
 class HistoryPage extends StatefulWidget {

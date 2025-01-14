@@ -19,9 +19,10 @@ class EventCategoryModel {
 }
 
 List<EventCategoryModel> get listEventCategory => [
-  EventCategoryModel(id: 0, name: 'Learning'),
-  EventCategoryModel(id: 1, name: 'Member Engagement'),
-  EventCategoryModel(id: 2, name: 'MyEO'),
-  EventCategoryModel(id: 3, name: 'EOA (EO Accelerator)'),
-  EventCategoryModel(id: 4, name: 'Forum'),
+  EventCategoryModel(id: 0, name: 'All'),
+  EventCategoryModel(id: 1, name: 'Learning'),
+  EventCategoryModel(id: 2, name: 'Member Engagement'),
+  EventCategoryModel(id: 3, name: 'MyEO'),
+  EventCategoryModel(id: 4, name: 'EOA (EO Accelerator)'),
+  EventCategoryModel(id: 5, name: 'Forum'),
 ];

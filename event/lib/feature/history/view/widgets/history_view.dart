@@ -17,8 +17,16 @@ class HistoryView extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
       child: const Column(
         children: [
-          TabCard(title: 'Konser Bruno Mars', location: 'Jakarta', datetime: ''),
-          TabCard(title: 'Konser Bruno Mars', location: 'Surabaya', datetime: ''),
+          TabCard(
+              bookingId: '112122123134',
+              title: 'The Haunting Of The Seven Seas',
+              location: 'Jakarta',
+              datetime: '16 November 2024'),
+          TabCard(
+              bookingId: '112122123135',
+              title: 'Transform Marketing & Sales',
+              location: 'Jakarta',
+              datetime: '07 November 2024'),
         ],
       ),
     );
