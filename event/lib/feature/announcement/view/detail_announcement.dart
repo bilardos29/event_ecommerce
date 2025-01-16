@@ -1,9 +1,12 @@
+import 'package:event/feature/announcement/model/announce_model.dart';
 import 'package:event/utils/strings.dart';
 import 'package:event/widgets/base_widget.dart';
 import 'package:flutter/material.dart';
 
 class DetailAnnouncement extends StatefulWidget {
-  const DetailAnnouncement({Key? key}) : super(key: key);
+  DetailAnnouncement({required this.item, Key? key}) : super(key: key);
+
+  AnnounceModel item;
 
   @override
   State<DetailAnnouncement> createState() => _DetailAnnouncementState();
@@ -24,27 +27,27 @@ class _DetailAnnouncementState extends State<DetailAnnouncement> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
               child:
                   Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
                 Text(
-                  'Event Calendar',
-                  style: TextStyle(
+                  '${widget.item.title}',
+                  style: const TextStyle(
                     fontSize: 24,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
                 Text(
-                  'December 2024',
-                  style: TextStyle(
+                  '${widget.item.date}',
+                  style: const TextStyle(
                     fontSize: 15
                   ),
                 ),
               ]),
             ),
             const SizedBox(height: 12),
-            Image.asset('images/sample/img_announcement.jpeg'),
+            Image.asset('images/sample/${widget.item.image}'),
           ],
         ),
       ),

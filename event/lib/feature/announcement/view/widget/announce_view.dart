@@ -1,7 +1,10 @@
+import 'package:event/feature/announcement/model/announce_model.dart';
 import 'package:flutter/material.dart';
 
 class AnnounceView extends StatelessWidget {
-  const AnnounceView({Key? key}) : super(key: key);
+  AnnounceView({required this.item, Key? key}) : super(key: key);
+
+  AnnounceModel item;
 
   @override
   Widget build(BuildContext context) {
@@ -12,8 +15,8 @@ class AnnounceView extends StatelessWidget {
           border: Border.all(color: Colors.black, width: 0.2),
           borderRadius: BorderRadius.circular(12),
           color: Colors.black,
-          image: const DecorationImage(
-              image: AssetImage('images/sample/img_announcement.jpeg'),
+          image: DecorationImage(
+              image: AssetImage('images/sample/${item.image}'),
               opacity: 0.86,
               fit: BoxFit.cover)),
       // child: Image.asset('images/sample/img_announcement.jpeg', fit: BoxFit.cover,),
