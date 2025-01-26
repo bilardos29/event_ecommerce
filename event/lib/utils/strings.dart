@@ -56,7 +56,7 @@ class Strings {
   static const String barDetailMemberBenefit = 'Detail Member Benefit';
 
   //sap
-  static const String barSAP = 'Strategic Alliance Partner';
+  static const String barSAP = 'SAPs';
   static const String barDetailSAP = 'Detail SAP';
 
   //announcement
