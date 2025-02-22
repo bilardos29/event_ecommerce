@@ -5,12 +5,14 @@ class HomeMenu extends StatelessWidget {
   const HomeMenu({
     required this.img,
     required this.menu,
+    required this.bgColor,
     required this.onClick,
     Key? key,
   }) : super(key: key);
 
   final String img;
   final String menu;
+  final Color bgColor;
   final VoidCallback onClick;
 
   @override
@@ -28,7 +30,7 @@ class HomeMenu extends StatelessWidget {
               padding: const EdgeInsets.all(14),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(12),
-                color: ColorsUtil.mainButton,
+                color: bgColor,
                 boxShadow: [
                   BoxShadow(
                     color: Colors.grey.withOpacity(0.7),

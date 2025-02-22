@@ -10,6 +10,7 @@ import 'package:event/feature/mycard/view/mycard.dart';
 import 'package:event/feature/referral/view/referral.dart';
 import 'package:event/feature/sap/view/list_sap.dart';
 import 'package:event/feature/video_player/view/video_player_view.dart';
+import 'package:event/utils/colors.dart';
 import 'package:event/utils/strings.dart';
 import 'package:event/widgets/base_widget.dart';
 import 'package:flutter/material.dart';
@@ -52,6 +53,7 @@ class _HomePageState extends State<HomePage> {
                       HomeMenu(
                         img: 'ic_event.png',
                         menu: 'Events',
+                        bgColor: ColorsUtil.menu_event,
                         onClick: () {
                           BaseWidget.push(context, const ListEvent());
                         },
@@ -59,6 +61,7 @@ class _HomePageState extends State<HomePage> {
                       HomeMenu(
                         img: 'ic_calendar.png',
                         menu: 'Calendar',
+                        bgColor: ColorsUtil.menu_calendar,
                         onClick: () {
                           BaseWidget.push(context, const ListCalendarEvent());
                         },
@@ -66,6 +69,7 @@ class _HomePageState extends State<HomePage> {
                       HomeMenu(
                         img: 'ic_referral.png',
                         menu: 'Referrals',
+                        bgColor: ColorsUtil.menu_referral,
                         onClick: () {
                           BaseWidget.push(context, const ReferralPage());
                         },
@@ -79,6 +83,7 @@ class _HomePageState extends State<HomePage> {
                       HomeMenu(
                         img: 'ic_partnership.png',
                         menu: 'SAP',
+                        bgColor: ColorsUtil.menu_sap,
                         onClick: () {
                           BaseWidget.push(context, const ListSAP());
                         },
@@ -86,6 +91,7 @@ class _HomePageState extends State<HomePage> {
                       HomeMenu(
                         img: 'ic_benefit.png',
                         menu: 'Member Benefits',
+                        bgColor: ColorsUtil.menu_memberbenefit,
                         onClick: () {
                           BaseWidget.push(context, const ListMemberBenefit());
                         },
@@ -93,6 +99,7 @@ class _HomePageState extends State<HomePage> {
                       HomeMenu(
                         img: 'ic_announce.png',
                         menu: 'Announcements',
+                        bgColor: ColorsUtil.menu_announcement,
                         onClick: () {
                           BaseWidget.push(context, const ListAnnouncement());
                         },

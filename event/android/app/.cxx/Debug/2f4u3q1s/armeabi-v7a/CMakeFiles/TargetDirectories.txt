@@ -1,0 +1,2 @@
+/Users/dewa/freelance/event_ecommerce/event/android/app/.cxx/Debug/2f4u3q1s/armeabi-v7a/CMakeFiles/edit_cache.dir
+/Users/dewa/freelance/event_ecommerce/event/android/app/.cxx/Debug/2f4u3q1s/armeabi-v7a/CMakeFiles/rebuild_cache.dir

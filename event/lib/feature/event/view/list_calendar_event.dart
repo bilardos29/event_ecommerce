@@ -5,6 +5,7 @@ import 'package:event/widgets/calendar_plus.dart';
 import 'package:event/utils/strings.dart';
 import 'package:event/widgets/base_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:syncfusion_flutter_calendar/calendar.dart';
 
 class ListCalendarEvent extends StatefulWidget {
   const ListCalendarEvent({Key? key}) : super(key: key);
@@ -41,31 +42,23 @@ class _ListCalendarEventState extends State<ListCalendarEvent> {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Container(
-                margin: const EdgeInsets.only(top: 7),
-                child: CalendarPlus(
-                  rowHeight: 60,
-                  selectedDate: DateTime.now(),
-                  onSelectedDate: (selectedDay) {
-                    // controller.selectedDate(selectedDay);
-                    // controller.initSelectedCalendar();
-                  },
-                  onPageChanged: (focusedDay) async {
-                    // controller.selectedDate(focusedDay);
-                    // await controller.initWorkingCalendar();
-                  },
-                  markers: const [
-                    // ...controller.workingCalendars.map(
-                    //       (value) => CalendarMarkerAdapter(
-                    //     date: value.tanggal,
-                    //     isHoliday: value.libur.isNotEmpty == true,
-                    //     widget: WorkingCalendarMarkers(
-                    //       calendar: value,
-                    //     ),
-                    //   ),
-                    // ),
-                  ],
-                ),
+              SfCalendar(
+                view: CalendarView.month,
+                allowedViews: const <CalendarView>[
+                  CalendarView.week,
+                  CalendarView.month,
+                  CalendarView.timelineMonth,
+                  CalendarView.schedule
+                ],
+                headerHeight: 48,
+                scheduleViewSettings: const ScheduleViewSettings(
+                    monthHeaderSettings: MonthHeaderSettings(
+                        height: 68,
+                        backgroundColor: Color(0xff3D45F2))),
+                dataSource: MeetingDataSource(_getDataSource()),
+                monthViewSettings: const MonthViewSettings(
+                    appointmentDisplayMode:
+                        MonthAppointmentDisplayMode.appointment),
               ),
               const SizedBox(height: 20),
               GridView.builder(
@@ -82,7 +75,11 @@ class _ListCalendarEventState extends State<ListCalendarEvent> {
                     return EventCard(
                       item: listEvent[idx],
                       onClick: () {
-                        BaseWidget.push(ctx, DetailEvent(item: listEvent[idx],));
+                        BaseWidget.push(
+                            ctx,
+                            DetailEvent(
+                              item: listEvent[idx],
+                            ));
                       },
                     );
                   })
@@ -92,4 +89,66 @@ class _ListCalendarEventState extends State<ListCalendarEvent> {
       ),
     );
   }
+
+  List<Meeting> _getDataSource() {
+    final List<Meeting> meetings = <Meeting>[];
+    final DateTime today = DateTime.now();
+    final DateTime startTime =
+        DateTime(today.year, today.month, today.day - 1, 9);
+    final DateTime endTime = startTime.add(const Duration(hours: 2));
+    print('${today.day}');
+    meetings.add(Meeting(
+        'Conference', startTime, endTime, const Color(0xFF0F8644), false));
+    return meetings;
+  }
+}
+
+class MeetingDataSource extends CalendarDataSource {
+  MeetingDataSource(List<Meeting> source) {
+    appointments = source;
+  }
+
+  @override
+  DateTime getStartTime(int index) {
+    return _getMeetingData(index).from;
+  }
+
+  @override
+  DateTime getEndTime(int index) {
+    return _getMeetingData(index).to;
+  }
+
+  @override
+  String getSubject(int index) {
+    return _getMeetingData(index).eventName;
+  }
+
+  @override
+  Color getColor(int index) {
+    return _getMeetingData(index).background;
+  }
+
+  @override
+  bool isAllDay(int index) {
+    return _getMeetingData(index).isAllDay;
+  }
+
+  Meeting _getMeetingData(int index) {
+    final dynamic meeting = appointments![index];
+    late final Meeting meetingData;
+    if (meeting is Meeting) {
+      meetingData = meeting;
+    }
+
+    return meetingData;
+  }
+}
+
+class Meeting {
+  Meeting(this.eventName, this.from, this.to, this.background, this.isAllDay);
+  String eventName;
+  DateTime from;
+  DateTime to;
+  Color background;
+  bool isAllDay;
 }

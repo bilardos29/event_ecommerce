@@ -1,0 +1,2 @@
+/Users/dewa/freelance/event_ecommerce/event/android/app/.cxx/RelWithDebInfo/g2519185/x86_64/CMakeFiles/edit_cache.dir
+/Users/dewa/freelance/event_ecommerce/event/android/app/.cxx/RelWithDebInfo/g2519185/x86_64/CMakeFiles/rebuild_cache.dir

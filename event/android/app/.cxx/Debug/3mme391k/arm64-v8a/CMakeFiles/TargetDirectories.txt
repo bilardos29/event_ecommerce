@@ -1,0 +1,2 @@
+/Users/dewa/freelance/event_ecommerce/event/android/app/.cxx/Debug/3mme391k/arm64-v8a/CMakeFiles/rebuild_cache.dir
+/Users/dewa/freelance/event_ecommerce/event/android/app/.cxx/Debug/3mme391k/arm64-v8a/CMakeFiles/edit_cache.dir
