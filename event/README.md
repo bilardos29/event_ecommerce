@@ -11,9 +11,9 @@ and can scan qrcode of the event when user attend the event.</p>
 
 ## 📸 Screenshot
 <div>
-    <img alt="Dashboard" height="460" src="screenshot/capture_home.png" width="240"/>
-    <img alt="Dashboard" height="460" src="screenshot/capture_events.png" width="240"/>
-    <img alt="Dashboard" height="460" src="screenshot/capture_detail_event.png" width="240"/>
+    <img alt="Dashboard" height="460" src="screenshot/capture_home.png" width="210"/>
+    <img alt="Dashboard" height="460" src="screenshot/capture_events.png" width="210"/>
+    <img alt="Dashboard" height="460" src="screenshot/capture_detail_event.png" width="210"/>
 </div>
 
 
